@@ -1,0 +1,7 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/song/source/repos/STG2/STG2/Content/background.jpg","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/background.xnb","TextureProcessor","Texture2DContent",61485,3853781,0.1707152
+"C:/Users/song/source/repos/STG2/STG2/Content/background3.png","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/background3.xnb","TextureProcessor","Texture2DContent",470785,1625285,0.1477147
+"C:/Users/song/source/repos/STG2/STG2/Content/background4.png","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/background4.xnb","TextureProcessor","Texture2DContent",934798,3759573,0.0638123
+"C:/Users/song/source/repos/STG2/STG2/Content/button2.png","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/button2.xnb","TextureProcessor","Texture2DContent",10355,100885,0.1148583
+"C:/Users/song/source/repos/STG2/STG2/Content/Fonts.spritefont","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/Fonts.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.0685735
+"C:/Users/song/source/repos/STG2/STG2/Content/plane.png","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/plane.xnb","TextureProcessor","Texture2DContent",43598,159133,0.0031466
