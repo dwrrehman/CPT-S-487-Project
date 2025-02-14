@@ -63,9 +63,10 @@ namespace STG2
         {
             double currentTime = gameTime.TotalGameTime.TotalSeconds;
 
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+                Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            // TODO: Add your update logic here
+
             if (!_gameStarted)
             {
                 _menu.Update(gameTime);
@@ -77,43 +78,55 @@ namespace STG2
             else
             {
                 var keyboardState = Keyboard.GetState();
-               
-                if (keyboardState.IsKeyDown(Keys.Space)&&currentTime > start+Cooldown)
+
+                // Handle shooting
+                if (keyboardState.IsKeyDown(Keys.Space) && currentTime > start + Cooldown)
                 {
                     PlayerBullet bullet = _playerPlanne.Shoot(_texture4);
                     _bullets.Add(bullet);
                     start = currentTime;
+                }
 
-                }
-                else if (keyboardState.IsKeyDown(Keys.W))
+                // Handle movement
+                direction newDirection = direction.None;
+                bool isUpPressed = keyboardState.IsKeyDown(Keys.W);
+                bool isDownPressed = keyboardState.IsKeyDown(Keys.S);
+                bool isLeftPressed = keyboardState.IsKeyDown(Keys.A);
+                bool isRightPressed = keyboardState.IsKeyDown(Keys.D);
+                bool isShiftPressed = keyboardState.IsKeyDown(Keys.LeftShift) ||
+                                     keyboardState.IsKeyDown(Keys.RightShift);
+
+                // Set diagonal movement
+                if (isUpPressed && isLeftPressed) newDirection = direction.UpLeft;
+                else if (isUpPressed && isRightPressed) newDirection = direction.UpRight;
+                else if (isDownPressed && isLeftPressed) newDirection = direction.DownLeft;
+                else if (isDownPressed && isRightPressed) newDirection = direction.DownRight;
+                // Set cardinal movement
+                else if (isUpPressed) newDirection = direction.Up;
+                else if (isDownPressed) newDirection = direction.Down;
+                else if (isLeftPressed) newDirection = direction.Left;
+                else if (isRightPressed) newDirection = direction.Right;
+
+                _playerPlanne.Direction = newDirection;
+                _playerPlanne.SetSpeedMode(isShiftPressed);
+
+                if (newDirection != direction.None)
                 {
-                    _playerPlanne.Direction = direction.Up;
+                    _playerPlanne.Update();
                 }
-                else if (keyboardState.IsKeyDown(Keys.S))
-                {
-                    _playerPlanne.Direction = direction.Down;
-                }
-                else if (keyboardState.IsKeyDown(Keys.A))
-                {
-                    _playerPlanne.Direction = direction.Left;
-                }
-                else if (keyboardState.IsKeyDown(Keys.D))
-                {
-                    _playerPlanne.Direction = direction.Right;
-                }
-                _playerPlanne.Update();
+
+                // Update bullets
                 for (int i = 0; i < _bullets.Count; i++)
                 {
-  
                     _bullets[i].Move();
-                    if (_bullets[i].Position.Y ==0) 
+                    if (_bullets[i].Position.Y == 0)
                     {
                         _bullets.RemoveAt(i);
                         i--;
                     }
                 }
 
-                    base.Update(gameTime);
+                base.Update(gameTime);
             }
         }
         protected override void Draw(GameTime gameTime)

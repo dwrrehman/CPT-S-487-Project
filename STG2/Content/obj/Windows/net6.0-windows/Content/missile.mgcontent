@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/song/source/repos/STG2/STG2/Content/missile.png</SourceFile>
-  <SourceTime>2025-02-13T15:47:41.2944669-08:00</SourceTime>
-  <DestFile>C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/Content/missile.xnb</DestFile>
-  <DestTime>2025-02-13T15:48:55.3819873-08:00</DestTime>
+  <SourceFile>C:/Users/haris/source/repos/cpts487project/STG2/Content/missile.png</SourceFile>
+  <SourceTime>2025-02-13T19:43:51.8424053-08:00</SourceTime>
+  <DestFile>C:/Users/haris/source/repos/cpts487project/STG2/Content/bin/Windows/Content/missile.xnb</DestFile>
+  <DestTime>2025-02-13T22:47:20.3122836-08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T04:44:56-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
