@@ -1,0 +1,12 @@
+Project Vision (10pts)
+    a)
+Submit a txt file to your git repository, detailing your own vision of the game you are going to implement by the end of the semester. You are not required to replicate exactly what is in the video, but here are the requirements for your end project:
+i. The entire game should last approximately 2-3 minutes, making up of 4 phases: regular play with grunts; mid boss attack; more grunts; and final boss attack.
+ii. At least four different types of enemies, as stated above. The mid boss and a final boss must have more elaborated attacks.
+iii. Specifically, the final boss must have two different stages of attack, mimicking the first stage and third stage of attacks in the video (01:36 – 02:22, and 03:07 – 03:52, respectively). This is required to be in your final demo.
+iv. Other more detailed requirements are included below in Deliverable 2 & 3.
+4
+b) In the txt file, present as much game related details as you can think of. Describe your plan of the game in a chronological sequence, for instance, “The first wave lasts 10 seconds, XXX happens”, and descriptions of the bosses’ firing patterns etc. Think of this as a “game script” that provide base line ideas that your code will try to achieve.
+c) Also include other information such as how many lives the player has, or the HP of bosses, the default control, etc. Use the video as a reference. Again, you are NOT required to copy the video except when asked to, but you may use it as a helpful reference. This will be our “requirement stage” for the project, so that you and I can have a common understanding on what you are working towards, and what my expectations are.
+
+
