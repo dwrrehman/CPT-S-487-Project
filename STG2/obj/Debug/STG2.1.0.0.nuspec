@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>STG2</id>
+    <version>1.0.0</version>
+    <authors>STG2</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="72694d9f4efa76e8083fdcd8edac558dcec999ef" />
+    <dependencies>
+      <group targetFramework="net6.0-windows7.0">
+        <dependency id="MonoGame.Content.Builder.Task" version="3.8.1.303" exclude="Build,Analyzers" />
+        <dependency id="MonoGame.Framework.WindowsDX" version="3.8.1.303" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net6.0-windows7.0/Content/bin/Windows/Content/background.xnb" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Content/bin/Windows/Content/background3.xnb" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Content/bin/Windows/Content/background4.xnb" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\song\source\repos\STG2\STG2\bin\Debug\net6.0-windows\STG2.runtimeconfig.json" target="lib\net6.0-windows7.0\STG2.runtimeconfig.json" />
+    <file src="C:\Users\song\source\repos\STG2\STG2\bin\Debug\net6.0-windows\STG2.dll" target="lib\net6.0-windows7.0\STG2.dll" />
+    <file src="C:\Users\song\source\repos\STG2\STG2\Content\bin\Windows\Content\background.xnb" target="content\Content\bin\Windows\Content\background.xnb" />
+    <file src="C:\Users\song\source\repos\STG2\STG2\Content\bin\Windows\Content\background.xnb" target="contentFiles\any\net6.0-windows7.0\Content\bin\Windows\Content\background.xnb" />
+    <file src="C:\Users\song\source\repos\STG2\STG2\Content\bin\Windows\Content\background3.xnb" target="content\Content\bin\Windows\Content\background3.xnb" />
+    <file src="C:\Users\song\source\repos\STG2\STG2\Content\bin\Windows\Content\background3.xnb" target="contentFiles\any\net6.0-windows7.0\Content\bin\Windows\Content\background3.xnb" />
+    <file src="C:\Users\song\source\repos\STG2\STG2\Content\bin\Windows\Content\background4.xnb" target="content\Content\bin\Windows\Content\background4.xnb" />
+    <file src="C:\Users\song\source\repos\STG2\STG2\Content\bin\Windows\Content\background4.xnb" target="contentFiles\any\net6.0-windows7.0\Content\bin\Windows\Content\background4.xnb" />
+  </files>
+</package>
