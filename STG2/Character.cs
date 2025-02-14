@@ -10,7 +10,20 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace STG
 {
-    enum direction { Left, Right, Up, Down }
+    enum direction
+    {
+        Left,
+        Right,
+        Up,
+        Down,
+        UpLeft,    // New diagonal direction
+        UpRight,   // New diagonal direction
+        DownLeft,  // New diagonal direction
+        DownRight, // New diagonal direction
+        None       // New state for when no direction is active
+    }
+    enum EnemyType { Downward, SideToSide }
+
     abstract class Character
     {
 
@@ -64,6 +77,22 @@ namespace STG
                 case direction.Right:
                      Position.X += this.Speed;
                     break ;
+                case direction.UpLeft:
+                    Position.Y -= this.Speed;
+                    Position.X -= this.Speed;
+                    break;
+                case direction.UpRight:
+                    Position.Y -= this.Speed;
+                    Position.X += this.Speed;
+                    break;
+                case direction.DownLeft:
+                    Position.Y += this.Speed;
+                    Position.X -= this.Speed;
+                    break;
+                case direction.DownRight:
+                    Position.Y += this.Speed;
+                    Position.X += this.Speed;
+                    break;
             }
             if (Position.X < 0)
             {
