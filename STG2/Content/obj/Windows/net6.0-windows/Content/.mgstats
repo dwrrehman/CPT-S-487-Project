@@ -4,4 +4,5 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/song/source/repos/STG2/STG2/Content/background4.png","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/Content/background4.xnb","TextureProcessor","Texture2DContent",934798,3759573,0.1697446
 "C:/Users/song/source/repos/STG2/STG2/Content/button2.png","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/Content/button2.xnb","TextureProcessor","Texture2DContent",10355,100885,0.1127147
 "C:/Users/song/source/repos/STG2/STG2/Content/Fonts.spritefont","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/Content/Fonts.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.0629959
+"C:/Users/song/source/repos/STG2/STG2/Content/missile.png","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/Content/missile.xnb","TextureProcessor","Texture2DContent",49642,3841685,0.1648569
 "C:/Users/song/source/repos/STG2/STG2/Content/plane.png","C:/Users/song/source/repos/STG2/STG2/Content/bin/Windows/Content/plane.xnb","TextureProcessor","Texture2DContent",43598,159133,0.1301969

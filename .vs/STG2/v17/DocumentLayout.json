@@ -1,0 +1,147 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\song\\source\\repos\\STG2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\song\\source\\repos\\stg2\\stg2\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\song\\source\\repos\\stg2\\stg2\\playerplanne.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\playerplanne.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\song\\source\\repos\\stg2\\stg2\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\song\\source\\repos\\stg2\\stg2\\background.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\background.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\song\\source\\repos\\stg2\\stg2\\content\\playerbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\content\\playerbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\song\\source\\repos\\stg2\\stg2\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\song\\source\\repos\\stg2\\stg2\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerBullet.cs",
+              "DocumentMoniker": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Content\\PlayerBullet.cs",
+              "RelativeDocumentMoniker": "STG2\\Content\\PlayerBullet.cs",
+              "ToolTip": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Content\\PlayerBullet.cs",
+              "RelativeToolTip": "STG2\\Content\\PlayerBullet.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T21:35:11.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Bullet.cs",
+              "RelativeDocumentMoniker": "STG2\\Bullet.cs",
+              "ToolTip": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Bullet.cs",
+              "RelativeToolTip": "STG2\\Bullet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T06:57:15.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Menu.cs",
+              "RelativeDocumentMoniker": "STG2\\Menu.cs",
+              "ToolTip": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Menu.cs",
+              "RelativeToolTip": "STG2\\Menu.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAIwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T10:48:02.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerPlanne.cs",
+              "DocumentMoniker": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\PlayerPlanne.cs",
+              "RelativeDocumentMoniker": "STG2\\PlayerPlanne.cs",
+              "ToolTip": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\PlayerPlanne.cs",
+              "RelativeToolTip": "STG2\\PlayerPlanne.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAB+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T03:08:58.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Background.cs",
+              "DocumentMoniker": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Background.cs",
+              "RelativeDocumentMoniker": "STG2\\Background.cs",
+              "ToolTip": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Background.cs",
+              "RelativeToolTip": "STG2\\Background.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAUwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T01:22:06.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Game1.cs",
+              "RelativeDocumentMoniker": "STG2\\Game1.cs",
+              "ToolTip": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Game1.cs",
+              "RelativeToolTip": "STG2\\Game1.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAzwBoAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T09:22:22.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Character.cs",
+              "DocumentMoniker": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Character.cs",
+              "RelativeDocumentMoniker": "STG2\\Character.cs",
+              "ToolTip": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\Character.cs",
+              "RelativeToolTip": "STG2\\Character.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAmwDQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T09:01:26.387Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

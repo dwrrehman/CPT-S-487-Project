@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using STG;
+using STG2.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,14 @@ namespace STG2
         public void Update()
         {
             this.Move();
+        }
+
+        public PlayerBullet Shoot(Texture2D texture)
+        {
+           int bulletX = (int)(this.Position.X + (40 /2f));
+           int bulletY = (int)(this.Position.Y);
+           PlayerBullet playerBullet = new PlayerBullet(texture,new Vector2(bulletX,bulletY),texture.Width,texture.Height,0,15,direction.Up,5);
+           return playerBullet;
         }
 
     }

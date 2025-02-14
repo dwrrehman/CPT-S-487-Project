@@ -16,7 +16,6 @@ namespace STG2
 
         private MouseState _currentMouse;
         private SpriteFont _font;
-        private string text;
         private Texture2D _texture;
         private MouseState _previousMouse;
 

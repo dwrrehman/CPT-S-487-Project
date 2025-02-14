@@ -9,9 +9,11 @@
     <File>C:/Users/song/source/repos/STG2/STG2/Content/background4.png</File>
     <File>C:/Users/song/source/repos/STG2/STG2/Content/button2.png</File>
     <File>C:/Users/song/source/repos/STG2/STG2/Content/Fonts.spritefont</File>
+    <File>C:/Users/song/source/repos/STG2/STG2/Content/missile.png</File>
     <File>C:/Users/song/source/repos/STG2/STG2/Content/plane.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
