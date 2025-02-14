@@ -11,6 +11,8 @@ using Microsoft.Xna.Framework.Graphics;
 namespace STG
 {
     enum direction { Left, Right, Up, Down }
+    enum EnemyType { Downward, SideToSide }
+
     abstract class Character
     {
 
