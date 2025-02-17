@@ -1,12 +1,137 @@
-Project Vision (10pts)
-    a)
-Submit a txt file to your git repository, detailing your own vision of the game you are going to implement by the end of the semester. You are not required to replicate exactly what is in the video, but here are the requirements for your end project:
-i. The entire game should last approximately 2-3 minutes, making up of 4 phases: regular play with grunts; mid boss attack; more grunts; and final boss attack.
-ii. At least four different types of enemies, as stated above. The mid boss and a final boss must have more elaborated attacks.
-iii. Specifically, the final boss must have two different stages of attack, mimicking the first stage and third stage of attacks in the video (01:36 – 02:22, and 03:07 – 03:52, respectively). This is required to be in your final demo.
-iv. Other more detailed requirements are included below in Deliverable 2 & 3.
-4
-b) In the txt file, present as much game related details as you can think of. Describe your plan of the game in a chronological sequence, for instance, “The first wave lasts 10 seconds, XXX happens”, and descriptions of the bosses’ firing patterns etc. Think of this as a “game script” that provide base line ideas that your code will try to achieve.
-c) Also include other information such as how many lives the player has, or the HP of bosses, the default control, etc. Use the video as a reference. Again, you are NOT required to copy the video except when asked to, but you may use it as a helpful reference. This will be our “requirement stage” for the project, so that you and I can have a common understanding on what you are working towards, and what my expectations are.
+----------------------------------------------------------------
+Project Vision : CPT-S 587
+----------------------------------------------------------------
+
+Team Members:
+	Asmita Acharya (Team Liason)
+	Harish Sridharan
+	Yuqun Song
+	Awanish Khanal
+	Daniel Rehman
+
+
+----------------------------------------------------------------
+Demo Video Description: 
+----------------------------------------------------------------
+
+This section describes what we observed from the video.
+
+
+Player Mechanics:
+
+The game in the demo video seems to allow for horizontal, vertical, and diagonal movements of the player. Additionally, it seems there were at least two different speed modes available to the player, as at certain points the player moved quickly to avoid bullets.
+
+Regular Enemies (A, B and C):
+
+Enemy type A seems to move in way where the enemies followed each other in a loop, or moved in a zig-zag pattern. Additionally it seems that this type did not fire any bullets. Enemy type B on the other hand, was a singular enemy which moved randomly throughout the screen, and performed a spiral, wave and firework attack on the player with the bullet firing pattern. Enemy type C is also a singular enemy, but was distinct in that it was a slow moving target which moved horizontally back and forth, shooting bursts of bullets and then leaves the arena. It also seems there could be more than one enemy type C present in the arena at the same time.
+
+Mid Boss Enemy:
+
+At this stage, the Mid Boss spawns in and stays stationary for a moment at one point in the arena, and then moves to random positions and performs the following various firing patterns at the player. These include: a sector firing pattern, firework firing pattern, 360 degree firing pattern, a firing pattern which comprises of a long burst of bullets that converge near the player.
+
+Final Boss Enemy:
+
+In the final stage, the Final Boss had similar movement pattern and spawning pattern as the Mid Boss, however, each attack seemed to last much longer. The Final Boss's attacks seemed to be more prolonged in their attack duration, and the Boss seemed to stay in the same spot in the arena for longer than the Mid Boss. As for the Boss's attack pattern, there was two attacks happening at the same time at some points, where a "sun-ray" pattern was blended with a chaotic 360 degree pattern, where bullets fired randomly in all directions. Additionally, eventually a variation on this attack was introduced, where these sun-rays where focused onto the player, which increased the difficulty. 
+
+This then concluded the game, after the player survived this final boss.
+
+Additionally, it did not look like there was a scoring system in place currently, and the health system seemed like it was in place, however it was not clear how much health the player or the enemies had, or how much damage a bullet does.
+
+In this play-through no bullets were fired by the player, which might be something that we wish to change in our version of the game.
+
+
+
+
+----------------------------------------------------------------
+Project Vision for Our Game:
+----------------------------------------------------------------
+
+The core components of our game will be similar to the above, we will have 4 stages similar to the above: 
+
+The Player:
+
+The movement of the player will also be 8-directional: up, down, left right, and all possible diagonal movements. 
+
+The players health will be represented by a health point system: the player starts with 50 health. Each bullet does a certain amount of damage in health points, when the bullet collides with the player. Additionally, the players health is not displayed.
+
+The player has a simple attack pattern which is simply firing in a straight line. 
+
+
+Regular Enemies (A and B):
+
+These enemies are the same size as the player. In addition to bullets damaging the player, any collision between the player and enemies deals damages as well. 
+
+For Regular Enemy type A, this types spawns at the top of the screen, and just fires straight down. This enemy type also moves down, closer to the player. Enemy Type A has enough HP so that the player requires two successful bullet shots to kill this type. Because the player's bullets have 10 HP of damage, this means this type has 20 HP exactly.
+
+For Regular Enemy type B, this type moves in a "sine-wave" pattern around the screen, and the attack pattern has a pattern of a shotgun or sector firing pattern, similar to the pattern seen in the demo video. This Enemy Type B has enough HP so that the player requires three successful bullet shots to kill this type, so 30 HP exactly.
+
+
+Mid Boss Enemy:
+
+In this stage, there is a singular enemy which spawn in on a random position in the map, and appears twice the size as a regular energy. upon spawning, it stays at that point in the screen for 4 seconds, performs a given firing attack pattern, and then moves to a different random point in the screen.
+
+It can perform two firing patterns on the player: a longer duration sector/shotgun firing pattern, as well as a spiral pattern. 
+
+This enemy has 150 HP, which thus requires the player to successfully fire 15 bullets to kill this enemy type. 
+
+
+Final Boss Enemy:
+
+Similar to the Mid Boss, this enemy appears at a random position, and moves periodcally throughout the map after firing bullets. 
+
+This enemy has three attack firing patterns: a Beam firing pattern, a Homing missile attack pattern, and a Spray firing pattern. Additionally, this enemy can perform the same attack patterns as the Mid Boss, and can simultaneously perform both sets of firing patterns at once. 
+
+Finally, this enemy has 300 HP, which requires 30 successful bullets to be fired by the player.
+
+
+
+----------------------------------------------------------------
+Our Game's Stages:
+----------------------------------------------------------------
+
+	1. First wave of Regular Enemies A and B:
+
+		- Duration: (around 45 seconds) 
+
+		- Number of enemies: (10 enemies)
+			
+
+	2. Mid Boss Stage
+
+		- Duration: (around 30 seconds) 
+
+		- Number of enemies: (1 enemy)
+			
+
+	3. Second wave of Regular Enemies A and B:
+
+		- Duration: (around 45 seconds) 
+
+		- Number of enemies: (20 enemies)
+			
+
+	4. Final Boss Stage:
+
+		- Duration: (around 60 seconds) 
+
+		- Number of enemies: (1 enemy)
+			
+
+
+----------------------------------------------------------------
+
+
+This concludes the project vision document.
+
+
+
+
+
+
+
+
+
+
+
 
 
