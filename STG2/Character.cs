@@ -58,42 +58,10 @@ namespace STG
 
         }
 
-        public virtual void Move()
+        public virtual void Move(Vector2 dir)
         {
-            switch (this.Direction)
-            {
-                case direction.Up:
-                    Position.Y -= this.Speed;
-                    break;
 
-                case direction.Down:
-                    Position.Y += this.Speed;
-                    break ;
-
-                case direction.Left:
-                    Position.X -= this.Speed;
-                    break;
-
-                case direction.Right:
-                     Position.X += this.Speed;
-                    break ;
-                case direction.UpLeft:
-                    Position.Y -= this.Speed;
-                    Position.X -= this.Speed;
-                    break;
-                case direction.UpRight:
-                    Position.Y -= this.Speed;
-                    Position.X += this.Speed;
-                    break;
-                case direction.DownLeft:
-                    Position.Y += this.Speed;
-                    Position.X -= this.Speed;
-                    break;
-                case direction.DownRight:
-                    Position.Y += this.Speed;
-                    Position.X += this.Speed;
-                    break;
-            }
+            this.Position += dir * this.Speed;
             if (Position.X < 0)
             {
                 Position.X = 0;

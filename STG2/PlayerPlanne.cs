@@ -27,7 +27,7 @@ namespace STG2
         }
         public void Update()
         {
-            this.Move();
+            this.Move(InputManager.currentDirection);
         }
 
         public PlayerBullet Shoot(Texture2D texture)

@@ -26,15 +26,15 @@ namespace STG2
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_texture, new Rectangle((int)Position.X, (int)Position.Y, 50, 50), Color.White);
-            foreach (var bullet in _bullets)
-            {
-                bullet.Draw(spriteBatch);
-            }
+            //foreach (var bullet in _bullets)
+           //{
+            //    bullet.Draw(spriteBatch);
+            //}
         }
 
         public void Update(GameTime gameTime)
         {
-            Move();
+           
 
             // Fire bullets periodically
             _timeSinceLastShot += gameTime.ElapsedGameTime.TotalSeconds;
@@ -57,23 +57,7 @@ namespace STG2
         }
 
 
-        public override void Move()
-        {
-            if (_enemyType == EnemyType.Downward)
-            {
-                // Move straight down
-                Position.Y += this.Speed;
-            }
-            else if (_enemyType == EnemyType.SideToSide)
-            {
-                // Move side to side
-                Position.X += this.Speed;
-                if (Position.X >= 400 || Position.X <= 0)
-                {
-                    Speed = -Speed; // Reverse direction at screen edges
-                }
-            }
-        }
+       
 
 
         private void Fire()
