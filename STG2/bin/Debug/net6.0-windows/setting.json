@@ -3,27 +3,27 @@
     {
       "name": "Up",
       "key": "W",
-      "gamepad": "DPadUp"
+      "gamepad": "LeftThumbstickUp"
     },
     {
       "name": "Down",
       "key": "S",
-      "gamepad": "DPadDown"
+      "gamepad": "LeftThumbstickDown"
     },
     {
       "name": "Left",
       "key": "A",
-      "gamepad": "DPadLeft"
+      "gamepad": "LeftThumbstickLeft"
     },
     {
       "name": "Right",
       "key": "D",
-      "gamepad": "DPadRight"
+      "gamepad": "LeftThumbstickRight"
     },
     {
       "name": "Attack",
       "key": "Space",
-      "gamepad": "A"
+      "gamepad": "Y"
     }
   ]
 }

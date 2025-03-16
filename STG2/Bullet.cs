@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using STG;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +8,30 @@ using System.Threading.Tasks;
 
 namespace STG2
 {
-    class Bullet : Character
+    internal class Bullet:Entity
     {
-        public int attack {  get; set; }
-        public Bullet(Vector2 position, int width, int height, int health, int speed, direction direction, int attack) : base(position, width, height, health, speed, direction)
+
+        private  Texture2D _texture;
+        public Movement MovementStrategy { get; set; }
+
+        public Bullet(Vector2 position, Texture2D texture, int health, int speed)
+            : base(position, texture.Width, texture.Height, health, speed)
         {
-            this.attack = attack;
+            _texture = texture;
         }
 
         public override void Draw(SpriteBatch spriteBatch)
-  {        }
+        {
+            spriteBatch.Draw(_texture, new Rectangle((int)Position.X, (int)Position.Y, 40, 40), Color.White);
+        
+        }
+        public void Update()
+        {
+
+            MovementStrategy.MoveStrategy(this);
+            // Update bullets
+
+        }
+
     }
 }

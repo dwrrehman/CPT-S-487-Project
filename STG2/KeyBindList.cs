@@ -20,5 +20,14 @@ namespace STG2
             }
             return "";
         }
+        public string GetpadByName(string actionName)
+        {
+            foreach (var kb in keyBinds)
+            {
+                if (kb.name == actionName)
+                    return kb.gamepad;
+            }
+            return "";
+        }
     }
 }

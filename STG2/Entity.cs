@@ -8,23 +8,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace STG
+namespace STG2
 {
-    enum direction
-    {
-        Left,
-        Right,
-        Up,
-        Down,
-        UpLeft,    // New diagonal direction
-        UpRight,   // New diagonal direction
-        DownLeft,  // New diagonal direction
-        DownRight, // New diagonal direction
-        None       // New state for when no direction is active
-    }
-    enum EnemyType { Downward, SideToSide }
+    
 
-    abstract class Character
+    abstract class Entity
     {
 
         public Vector2 Position;
@@ -36,27 +24,21 @@ namespace STG
 
         public int Speed { get; set; }
 
-        public direction Direction { get; set; }
 
-        public Character(Vector2 position, int width, int height, int health, int speed, direction direction)
+        public Entity(Vector2 position, int width, int height, int health, int speed)
         {
             this.Position = position;
             this.Width = width;
             this.Height = height;
             this.Health = health;
             this.Speed = speed;
-            this.Direction = direction;
 
         }
 
      
 
         public abstract void Draw(SpriteBatch spriteBatch);
-        public Rectangle GetRectangle()
-        {
-            return new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
-
-        }
+      
 
         public virtual void Move(Vector2 dir)
         {

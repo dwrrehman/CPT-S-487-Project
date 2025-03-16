@@ -1,13 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using STG;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.Text.Json;
 using System.IO;
 namespace STG2
@@ -17,12 +14,10 @@ namespace STG2
 
     internal static class InputManager
     {
-        private static MouseState currentmouseState;
-        private static KeyboardState currentKeyboardState;
-        private static GamePadState currentGamepad;
+ 
         private static Vector2 Direction;
         private static KeyBindList _keyList = new KeyBindList();
-
+        public static bool Attack { get;  set; }
         public static Vector2 currentDirection=>Direction;
         private static KeyBindList LoadFromJson(string filePath)
         {
@@ -34,36 +29,67 @@ namespace STG2
             KeyBindList list = JsonSerializer.Deserialize<KeyBindList>(json);
             return list;
         }
+       
         public static void Update()
         {
             var keyboardState = Keyboard.GetState();
             var mouseState = Mouse.GetState();
             var gamePad = GamePad.GetState(PlayerIndex.One);
             Vector2 Kdirection = Vector2.Zero;
+            Vector2 Gdirection = Vector2.Zero;
             _keyList = LoadFromJson("setting.json");
+
             string upStr = _keyList.GetKeyByName("Up");
             string downStr = _keyList.GetKeyByName("Down");
             string leftStr = _keyList.GetKeyByName("Left");
             string rightStr = _keyList.GetKeyByName("Right");
             string attackStr = _keyList.GetKeyByName("Attack");
+            bool ifattack = false;
+            bool ifpadattack = false;
 
             Keys upKey = (Keys)Enum.Parse(typeof(Keys), upStr);
             Keys downKey = (Keys)Enum.Parse(typeof(Keys), downStr);
             Keys leftKey = (Keys)Enum.Parse(typeof(Keys), leftStr);
             Keys rightKey = (Keys)Enum.Parse(typeof(Keys), rightStr);
+            Keys attackKey = (Keys)Enum.Parse(typeof(Keys), attackStr);
 
             if (keyboardState.IsKeyDown(upKey)) Kdirection.Y--;
             if (keyboardState.IsKeyDown(downKey)) Kdirection.Y++;
             if (keyboardState.IsKeyDown(leftKey)) Kdirection.X--;
             if (keyboardState.IsKeyDown(rightKey)) Kdirection.X++;
+            if (keyboardState.IsKeyDown(attackKey)) ifattack = true;
 
-            Vector2 Gdirection = Vector2.Zero;
+
             if (gamePad.IsConnected)
             {
-                Gdirection = gamePad.ThumbSticks.Left;
-                Gdirection.Y = -Gdirection.Y;
+                _keyList = LoadFromJson("setting.json");
+
+                string upPadStr = _keyList.GetpadByName("Up");
+                string downPadStr = _keyList.GetpadByName("Down");
+                string leftPadStr = _keyList.GetpadByName("Left");
+                string rightPadStr = _keyList.GetpadByName("Right");
+                string attackPadStr = _keyList.GetpadByName("Attack");
+                Buttons upBtn = (Buttons)Enum.Parse(typeof(Buttons), upPadStr);
+                Buttons downBtn = (Buttons)Enum.Parse(typeof(Buttons), downPadStr);
+                Buttons leftBtn = (Buttons)Enum.Parse(typeof(Buttons), leftPadStr);
+                Buttons rightBtn = (Buttons)Enum.Parse(typeof(Buttons), rightPadStr);
+                Buttons attackBtn = (Buttons)Enum.Parse(typeof(Buttons), attackPadStr);
+
+                if (gamePad.IsButtonDown(upBtn)) Gdirection.Y--;
+                if (gamePad.IsButtonDown(downBtn)) Gdirection.Y++;
+                if (gamePad.IsButtonDown(leftBtn)) Gdirection.X--;
+                if (gamePad.IsButtonDown(rightBtn)) Gdirection.X++;
+                if (gamePad.IsButtonDown(attackBtn)) ifpadattack = true;
+
+
             }
+
+            bool finalAttack = ifattack || ifpadattack;
+
+            Attack = finalAttack;
+
             Direction = Gdirection + Kdirection;
+
         }
 
 

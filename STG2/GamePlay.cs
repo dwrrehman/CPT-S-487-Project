@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using STG;
-using STG2.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +11,17 @@ namespace STG2
 {
     
     internal class GamePlay:MenuScreen{
-        private PlayerPlanne player;
+        private Player player;
         private Texture2D playerImage;
+
         private List<Enemy> _enemies;
-        private List<PlayerBullet> _bullets;
+        private List<Bullet> _bullets;
+
         private Texture2D _enemyTexture;
+
         private Texture2D _enemyTextureGreen;
-        public static Texture2D PixelTexture;
+        private Texture2D _bulletTexture;
+        public  Texture2D PixelTexture;
         private Texture2D _midBossTexture;
         private Texture2D _FinalBossTexture;
         private double _enemySpawnTimer;
@@ -27,10 +29,10 @@ namespace STG2
         private bool _midBossSpawned = true;
         private double _FinalBossSpawnTimer;
         private bool _FinalBossSpawned = true;
-        private double start = 0;
-        private double Cooldown = 0.3;
         private KeyboardState _currentKeyboard;
-        private KeyboardState _previousKeyboard;
+        private GamePadState _currentGamePad;
+
+        EntityFactory _entityFactory = new RegularFactory();
         public GamePlay(Game1 game1) : base(game1)
         {
         }
@@ -38,52 +40,38 @@ namespace STG2
         public override void Show()
         {
             base.Show();
-            playerImage = Game1.Content.Load<Texture2D>("plane");
             _speed = 5;
             _background = Game1.Content.Load<Texture2D>("background3");
-            player = new PlayerPlanne(position: new Vector2(200, 750), texture: playerImage,
-                health: 10,
-                speed: 5,
-                STG.direction.Up
-            );
-
+            playerImage= Game1.Content.Load<Texture2D>("plane");
+            _bulletTexture = Game1.Content.Load<Texture2D>("missile");
+            player = _entityFactory.CreatePlayer(playerImage);
+            _enemyTexture = Game1.Content.Load<Texture2D>("Enemy1");
+            _enemyTextureGreen = Game1.Content.Load<Texture2D>("Enemy2");
             _enemies = new List<Enemy>();
-            _bullets = new List<PlayerBullet>();
-
-            _enemyTexture = new Texture2D(Game1.GraphicsDevice, 50, 50);
-            Color[] data = new Color[50 * 50];
-            for (int i = 0; i < data.Length; ++i) data[i] = Color.Red;
-            _enemyTexture.SetData(data);
-
+            _bullets = new List<Bullet>();
             _midBossTexture = new Texture2D(Game1.GraphicsDevice, 100, 100);
-            Color[] datamid = new Color[100 * 100];
-            for (int i = 0; i < datamid.Length; ++i) datamid[i] = Color.Yellow;
-            _midBossTexture.SetData(datamid);
+            PixelTexture = Game1.Content.Load<Texture2D>("eb");
+
+            player.FireStrategy = new RegularFire(_bulletTexture);
 
             _FinalBossTexture = new Texture2D(Game1.GraphicsDevice, 150, 150);
-            Color[] dataFin = new Color[150 * 150];
-            for (int i = 0; i < dataFin.Length; ++i) dataFin[i] = Color.Brown;
-            _FinalBossTexture.SetData(dataFin);
-
-            _enemyTextureGreen = new Texture2D(Game1.GraphicsDevice, 50, 50);
-            Color[] greenData = new Color[50 * 50];
-            for (int i = 0; i < greenData.Length; ++i) greenData[i] = Color.Green;
-            _enemyTextureGreen.SetData(greenData);
-
-            PixelTexture = new Texture2D(Game1.GraphicsDevice, 1, 1);
-            PixelTexture.SetData(new[] { Color.White });
+          
+            
+            
         }
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            _previousKeyboard = _currentKeyboard;
             _currentKeyboard = Keyboard.GetState();
-            if (_currentKeyboard.IsKeyDown(Keys.Escape))
+            _currentGamePad = GamePad.GetState(PlayerIndex.One);
+            if (_currentKeyboard.IsKeyDown(Keys.Escape)|| _currentGamePad.IsButtonDown(Buttons.Start))
             {
                 Game1.ScreenManager.ChangeScreen(new Menu(Game1));
 
             }
-            player.Update();
+
+            player.Update(gameTime,_bullets,0.3);
+
             _enemySpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
             _midBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
             _FinalBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
@@ -95,12 +83,20 @@ namespace STG2
                 if (_enemies.Count % 2 == 0)
                 {
                     // Red enemy moves **straight down**
-                    _enemies.Add(new Enemy(new Vector2(enemyXPosition, 50), _enemyTexture, 3, 2, direction.Down, 1.5, EnemyType.Downward));
+                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(enemyXPosition, 50), _enemyTexture, 3,  new DownMovement());
+                    newEnemy.FireStrategy = new EnemyFire(PixelTexture);
+                    _enemies.Add(newEnemy);
+
                 }
                 else
                 {
                     // Green enemy moves **side-to-side in mid-screen**
-                    _enemies.Add(new Enemy(new Vector2(0, 300), _enemyTextureGreen, 3, 2, direction.Right, 1.5, EnemyType.SideToSide));
+                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(0, 300), _enemyTextureGreen, 3, new HorizonalMovement());
+                    newEnemy.FireStrategy = new EnemyFire(PixelTexture);
+
+                    _enemies.Add(newEnemy);
+
+                    
                 }
 
                 _enemySpawnTimer = 0;
@@ -115,12 +111,22 @@ namespace STG2
                 if (_enemies.Count % 2 == 0)
                 {
                     // Red enemy moves **straight down**
-                    _enemies.Add(new Enemy(new Vector2(enemyXPosition, 50), _enemyTexture, 3, 2, direction.Down, 1.5, EnemyType.Downward));
+
+                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(enemyXPosition, 50), _enemyTexture, 3, new DownMovement());
+                    newEnemy.FireStrategy = new EnemyFire(PixelTexture);
+
+                    _enemies.Add(newEnemy);
+
                 }
                 else
                 {
                     // Green enemy moves **side-to-side in mid-screen**
-                    _enemies.Add(new Enemy(new Vector2(0, 300), _enemyTextureGreen, 3, 2, direction.Right, 1.5, EnemyType.SideToSide));
+                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(0, 300), _enemyTextureGreen, 3,  new HorizonalMovement());
+                    newEnemy.FireStrategy = new EnemyFire(PixelTexture);
+
+                    _enemies.Add(newEnemy);
+                 
+
                 }
 
                 _enemySpawnTimer = 0;
@@ -130,23 +136,29 @@ namespace STG2
             if (_midBossSpawnTimer >= 10 && _midBossSpawned)
             {
                 int enemyXPosition = new Random().Next(50, 400);
-                _enemies.Add(new Enemy(new Vector2(enemyXPosition, 50), _midBossTexture, 3, 2, direction.Down, 1.5, EnemyType.SideToSide));
                 _midBossSpawned = false;
 
             }
             if (_FinalBossSpawnTimer >= 15 && _FinalBossSpawned)
             {
                 int enemyXPosition = new Random().Next(50, 400);
-                _enemies.Add(new Enemy(new Vector2(enemyXPosition, 50), _FinalBossTexture, 3, 2, direction.Down, 1.5, EnemyType.SideToSide));
                 _FinalBossSpawned = false;
 
             }
             // Update enemies
             foreach (var enemy in _enemies)
             {
-                enemy.Update(gameTime);
+                enemy.Update(gameTime,_bullets,1);
             }
+            for (int i = _bullets.Count - 1; i >= 0; i--)
+            {
+                _bullets[i].Update();
 
+                if (_bullets[i].Position.Y == 0)
+                {
+                    _bullets.RemoveAt(i);
+                }
+            }
         }
         
 
@@ -162,6 +174,11 @@ namespace STG2
             foreach (var enemy in _enemies)
             {
                 enemy.Draw(spriteBatch);
+            }
+
+            foreach (var bullet in _bullets)
+            {
+                bullet.Draw(spriteBatch);
             }
             spriteBatch.End();
         }

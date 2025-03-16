@@ -11,13 +11,14 @@ namespace STG2
 
         public string name { get; set; } 
         public string key { get; set; }
-        public string gamepad { get; set; } 
+        public string gamepad { get; set; }
 
-        public KeyBind(string name, string key)
+
+        public KeyBind(string name, string key,string Gamepad)
         {
             this.name = name;
             this.key = key;
-            //this.gamepad = Gamepad;
+            this.gamepad = Gamepad;
 
         }
     }

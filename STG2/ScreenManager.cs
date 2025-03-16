@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace STG2.Content
+namespace STG2
 {
     public class ScreenManager
     {

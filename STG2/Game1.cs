@@ -4,8 +4,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SharpDX.Direct3D9;
-using STG;
-using STG2.Content;
 
 namespace STG2
 {
@@ -14,15 +12,6 @@ namespace STG2
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-
-        private Texture2D _midBossTexture;
-        private Texture2D _FinalBossTexture;
-        public static Texture2D PixelTexture;
-
-        private PlayerPlanne _playerPlanne;
-        private List<PlayerBullet> _bullets;
-
-       
         
         public ScreenManager ScreenManager;
 
@@ -32,7 +21,7 @@ namespace STG2
             _graphics.PreferredBackBufferHeight = 850;
             _graphics.PreferredBackBufferWidth = 480;
             Content.RootDirectory = "Content";
-           IsMouseVisible = true;
+            IsMouseVisible = true;
            
         }
 
