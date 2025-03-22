@@ -38,12 +38,14 @@ namespace STG2
      
 
         public abstract void Draw(SpriteBatch spriteBatch);
-      
+
 
         public virtual void Move(Vector2 dir)
         {
-
+            // The direction vector now contains the speed multiplier
             this.Position += dir * this.Speed;
+
+            // Boundary checks remain the same
             if (Position.X < 0)
             {
                 Position.X = 0;
@@ -54,9 +56,10 @@ namespace STG2
             }
             if (Position.Y < 0)
             {
-                Position.Y= 0;
+                Position.Y = 0;
             }
-            if (Position.Y >= 700){
+            if (Position.Y >= 700)
+            {
                 Position.Y = 700;
             }
         }

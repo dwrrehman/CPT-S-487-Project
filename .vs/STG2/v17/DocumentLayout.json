@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\content\\obj\\windows\\button2.mgcontent||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\content\\obj\\windows\\button2.mgcontent||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\content\\obj\\windows\\bullet.mgcontent||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\content\\obj\\windows\\bullet.mgcontent||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\stg2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\stg2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\stg2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\stg2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\content\\obj\\windows\\button2.mgcontent||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\content\\obj\\windows\\button2.mgcontent||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,15 +38,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Entity.cs",
+              "RelativeDocumentMoniker": "STG2\\Entity.cs",
+              "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Entity.cs",
+              "RelativeToolTip": "STG2\\Entity.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T18:05:39.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Player.cs",
+              "RelativeDocumentMoniker": "STG2\\Player.cs",
+              "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Player.cs",
+              "RelativeToolTip": "STG2\\Player.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwDgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T17:43:07.926Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "InputManager.cs",
+              "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\InputManager.cs",
+              "RelativeDocumentMoniker": "STG2\\InputManager.cs",
+              "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\InputManager.cs",
+              "RelativeToolTip": "STG2\\InputManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T18:03:00.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "bullet.mgcontent",
+              "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Content\\obj\\Windows\\bullet.mgcontent",
+              "RelativeDocumentMoniker": "STG2\\Content\\obj\\Windows\\bullet.mgcontent",
+              "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Content\\obj\\Windows\\bullet.mgcontent",
+              "RelativeToolTip": "STG2\\Content\\obj\\Windows\\bullet.mgcontent",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-22T17:58:59.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "button2.mgcontent",
               "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Content\\obj\\Windows\\button2.mgcontent",
               "RelativeDocumentMoniker": "STG2\\Content\\obj\\Windows\\button2.mgcontent",
@@ -43,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\.gitignore",
               "RelativeDocumentMoniker": "STG2\\.gitignore",
@@ -60,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "STG2",
               "DocumentMoniker": "C:\\Users\\haris\\Source\\Repos\\CPT-S-487-Project\\STG2\\STG2.csproj",
               "RelativeDocumentMoniker": "STG2\\STG2.csproj",

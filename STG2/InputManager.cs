@@ -29,7 +29,9 @@ namespace STG2
             KeyBindList list = JsonSerializer.Deserialize<KeyBindList>(json);
             return list;
         }
-       
+
+        public static bool IsFastMode { get; private set; }
+
         public static void Update()
         {
             var keyboardState = Keyboard.GetState();
@@ -38,6 +40,16 @@ namespace STG2
             Vector2 Kdirection = Vector2.Zero;
             Vector2 Gdirection = Vector2.Zero;
             _keyList = LoadFromJson("setting.json");
+
+            // Check if shift key is pressed
+            IsFastMode = keyboardState.IsKeyDown(Keys.LeftShift) || keyboardState.IsKeyDown(Keys.RightShift);
+
+            // For gamepad, use LeftTrigger as the "fast mode" button
+            if (gamePad.IsConnected)
+            {
+                if (gamePad.Triggers.Left > 0.5f)
+                    IsFastMode = true;
+            }
 
             string upStr = _keyList.GetKeyByName("Up");
             string downStr = _keyList.GetKeyByName("Down");

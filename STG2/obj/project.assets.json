@@ -7475,23 +7475,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\song\\.nuget\\packages\\": {},
+    "C:\\Users\\haris\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\STG2.csproj",
+      "projectUniqueName": "C:\\Users\\haris\\Source\\Repos\\CPT-S-487-Project\\STG2\\STG2.csproj",
       "projectName": "STG2",
-      "projectPath": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\STG2.csproj",
-      "packagesPath": "C:\\Users\\song\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\song\\source\\repos\\STG2\\STG2\\obj\\",
+      "projectPath": "C:\\Users\\haris\\Source\\Repos\\CPT-S-487-Project\\STG2\\STG2.csproj",
+      "packagesPath": "C:\\Users\\haris\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\haris\\Source\\Repos\\CPT-S-487-Project\\STG2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\song\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\haris\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7500,7 +7500,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7519,7 +7518,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net6.0-windows7.0": {
@@ -7553,7 +7552,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
