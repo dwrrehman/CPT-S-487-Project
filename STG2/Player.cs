@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using STG2.States;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,15 @@ namespace STG2
 
         private const float SpeedMultiplier = 1.75f; // 75% faster in fast mode
 
-        public Player(Vector2 position,Texture2D texture, int health, int speed) : base(position,texture.Width,texture.Height, health, speed)
+        public Player(Vector2 position, Texture2D texture, int health, int speed)
+            : base(position, texture.Width, texture.Height, health, speed)
         {
             _texture = texture;
-
+            // Player health
+            Health = 50;
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void DefaultDraw(SpriteBatch spriteBatch)
         {
             // Draw player
             spriteBatch.Draw(texture: _texture,
@@ -31,6 +34,24 @@ namespace STG2
                     80, 
                     80),
                 color: Color.White);
+        }
+
+        public override void DefaultDraw(SpriteBatch spriteBatch, Color color)
+        {
+            // Draw player with specified color
+            spriteBatch.Draw(texture: _texture,
+                destinationRectangle: new Rectangle(
+                    (int)this.Position.X,
+                    (int)this.Position.Y,
+                    80, 
+                    80),
+                color: color);
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            
+            CurrentState.Draw(this, spriteBatch);
 
             // Debug: Draw hitbox outline
 #if DEBUG
@@ -46,8 +67,12 @@ namespace STG2
                 Color.Red * 0.5f);
 #endif
         }
+
         public void Update(GameTime gameTime, List<Bullet> bullets, double Firerate)
         {
+            // Call base update for state management
+            base.Update(gameTime);
+
             // Apply movement with speed adjustment based on fast mode
             Vector2 moveDirection = InputManager.currentDirection;
 
@@ -75,8 +100,5 @@ namespace STG2
                 FireStrategy.Fire(this, gameTime, bullets, Firerate);
             }
         }
-
-
-
     }
 }
