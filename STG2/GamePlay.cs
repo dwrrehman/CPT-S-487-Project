@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace STG2
 {
-    
-    internal class GamePlay:MenuScreen{
+
+    internal class GamePlay : MenuScreen
+    {
         private Player player;
         private Texture2D playerImage;
 
@@ -21,7 +22,7 @@ namespace STG2
 
         private Texture2D _enemyTextureGreen;
         private Texture2D _bulletTexture;
-        public  Texture2D PixelTexture;
+        public Texture2D PixelTexture;
         private Texture2D _midBossTexture;
         private Texture2D _FinalBossTexture;
         private double _enemySpawnTimer;
@@ -67,13 +68,13 @@ namespace STG2
             base.Update(gameTime);
             _currentKeyboard = Keyboard.GetState();
             _currentGamePad = GamePad.GetState(PlayerIndex.One);
-            if (_currentKeyboard.IsKeyDown(Keys.Escape)|| _currentGamePad.IsButtonDown(Buttons.Start))
+            if (_currentKeyboard.IsKeyDown(Keys.Escape) || _currentGamePad.IsButtonDown(Buttons.Start))
             {
                 Game1.ScreenManager.ChangeScreen(new Menu(Game1));
 
             }
 
-            player.Update(gameTime,_bullets,0.3);
+            player.Update(gameTime, _bullets, 0.3);
 
             _enemySpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
             _midBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
@@ -92,7 +93,7 @@ namespace STG2
                 if (_enemies.Count % 2 == 0)
                 {
                     // Red enemy moves **straight down**
-                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(enemyXPosition, 50), _enemyTexture, 3,  new DownMovement());
+                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(enemyXPosition, 50), _enemyTexture, 3, new DownMovement());
                     newEnemy.FireStrategy = new EnemyFire(PixelTexture);
                     _enemies.Add(newEnemy);
 
@@ -105,7 +106,7 @@ namespace STG2
 
                     _enemies.Add(newEnemy);
 
-                    
+
                 }
 
                 _enemySpawnTimer = 0;
@@ -130,11 +131,11 @@ namespace STG2
                 else
                 {
                     // Green enemy moves **side-to-side in mid-screen**
-                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(0, 300), _enemyTextureGreen, 3,  new HorizonalMovement());
+                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(0, 300), _enemyTextureGreen, 3, new HorizonalMovement());
                     newEnemy.FireStrategy = new EnemyFire(PixelTexture);
 
                     _enemies.Add(newEnemy);
-                 
+
 
                 }
 
@@ -157,7 +158,7 @@ namespace STG2
             // Update enemies
             foreach (var enemy in _enemies)
             {
-                enemy.Update(gameTime,_bullets,1);
+                enemy.Update(gameTime, _bullets, 1);
             }
             for (int i = _bullets.Count - 1; i >= 0; i--)
             {
@@ -201,7 +202,7 @@ namespace STG2
             Console.WriteLine($"Active bullets: {_bullets.Count} (Player: {_bullets.Count(b => b.MovementStrategy is UpMovement)}, Enemy: {_bullets.Count(b => !(b.MovementStrategy is UpMovement))})");
             Console.WriteLine($"Player health: {player.Health}");
         }
-        
+
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -209,9 +210,9 @@ namespace STG2
             spriteBatch.Begin();
             base.Draw(gameTime, spriteBatch);
 
-            
+
             player.Draw(spriteBatch);
-          
+
             foreach (var enemy in _enemies)
             {
                 enemy.Draw(spriteBatch);

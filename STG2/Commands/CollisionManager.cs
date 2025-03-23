@@ -53,7 +53,6 @@ namespace STG2
             }
         }
 
-
         private void CheckEnemyBulletsWithPlayer()
         {
             // Find enemy bullet
