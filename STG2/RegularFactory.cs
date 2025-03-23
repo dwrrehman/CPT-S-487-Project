@@ -25,17 +25,38 @@ namespace STG2
             return boss;
         }
 
-        public Bullet CreateBullet(Texture2D Texture,Entity entity, Movement movement)
+        public Bullet CreateBullet(Texture2D Texture, Entity entity, Movement movement)
         {
-            Bullet bullet = new Bullet(
-            position: new Vector2(entity.Position.X+(65/2f)-(40/2f), entity.Position.Y + (30/2f)-(40/2f)),
-            texture: Texture,
-            health: 0,
-            speed: 8
+            // Calculate bullet position based on entity center
+            Vector2 bulletPosition;
 
-        );
+            if (movement is UpMovement)
+            {
+                // Player bullets shoot from top center of player's hitbox
+                bulletPosition = new Vector2(
+                    entity.Position.X + 20, 
+                    entity.Position.Y); 
+            }
+            else
+            {
+                // Enemy bullets shoot from bottom center of enemy
+                bulletPosition = new Vector2(
+                    entity.Position.X + entity.Width / 2 - 15, 
+                    entity.Position.Y + entity.Height); 
+            }
+
+            Bullet bullet = new Bullet(
+                position: bulletPosition,
+                texture: Texture,
+                health: 1,
+                speed: 8
+            );
 
             bullet.MovementStrategy = movement;
+
+            // Add debug output
+            Console.WriteLine($"Created bullet at {bulletPosition.X}, {bulletPosition.Y}, Moving: {(movement is UpMovement ? "Up" : "Down")}");
+
             return bullet;
         }
 

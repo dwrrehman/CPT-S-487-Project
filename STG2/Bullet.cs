@@ -22,15 +22,63 @@ namespace STG2
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_texture, new Rectangle((int)Position.X, (int)Position.Y, 40, 40), Color.White);
-        
+            // Check if this is a player bullet (moving up) or enemy bullet
+            if (MovementStrategy is UpMovement)
+            {
+                // Player bullet (missile) - MAKE IT LARGER AND BRIGHTER
+                spriteBatch.Draw(_texture, new Rectangle(
+                    (int)Position.X,
+                    (int)Position.Y,
+                    40, // Increased from 30
+                    50), // Increased from 40
+                    Color.White);
+            }
+            else
+            {
+                // Enemy bullet (eb) - MAKE IT LARGER AND BRIGHTER
+                spriteBatch.Draw(_texture, new Rectangle(
+                    (int)Position.X,
+                    (int)Position.Y,
+                    30, // Increased from 20
+                    50), // Increased from 40
+                    Color.Red); // Changed to RED for better visibility
+            }
+
+            // Debug: Draw hitbox outline
+#if DEBUG
+            // Red rectangle for hitbox
+            Texture2D debugTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+            debugTexture.SetData(new[] { Color.Red });
+
+            if (MovementStrategy is UpMovement)
+            {
+                // Player bullet hitbox
+                spriteBatch.Draw(debugTexture, new Rectangle(
+                    (int)(Position.X + 15),
+                    (int)(Position.Y + 10),
+                    10,
+                    20),
+                    Color.Red * 0.5f);
+            }
+            else
+            {
+                // Enemy bullet hitbox
+                spriteBatch.Draw(debugTexture, new Rectangle(
+                    (int)(Position.X + 15),
+                    (int)(Position.Y + 10),
+                    10,
+                    30),
+                    Color.Red * 0.5f);
+            }
+#endif
         }
         public void Update()
         {
-
+            // Call the movement strategy to update position
             MovementStrategy.MoveStrategy(this);
-            // Update bullets
 
+            // Debug output
+            Console.WriteLine($"Bullet at position: {Position.X}, {Position.Y}, Type: {(MovementStrategy is UpMovement ? "Player" : "Enemy")}");
         }
 
     }

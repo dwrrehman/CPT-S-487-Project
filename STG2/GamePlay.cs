@@ -33,6 +33,8 @@ namespace STG2
         private GamePadState _currentGamePad;
 
         EntityFactory _entityFactory = new RegularFactory();
+
+        private CollisionManager _collisionManager;
         public GamePlay(Game1 game1) : base(game1)
         {
         }
@@ -42,7 +44,7 @@ namespace STG2
             base.Show();
             _speed = 5;
             _background = Game1.Content.Load<Texture2D>("background3");
-            playerImage= Game1.Content.Load<Texture2D>("plane");
+            playerImage = Game1.Content.Load<Texture2D>("plane");
             _bulletTexture = Game1.Content.Load<Texture2D>("missile");
             player = _entityFactory.CreatePlayer(playerImage);
             _enemyTexture = Game1.Content.Load<Texture2D>("Enemy1");
@@ -55,10 +57,11 @@ namespace STG2
             player.FireStrategy = new RegularFire(_bulletTexture);
 
             _FinalBossTexture = new Texture2D(Game1.GraphicsDevice, 150, 150);
-          
-            
-            
+
+            // Initialize the collision manager
+            _collisionManager = new CollisionManager(player, _enemies, _bullets);
         }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -71,6 +74,12 @@ namespace STG2
             }
 
             player.Update(gameTime,_bullets,0.3);
+
+            _enemySpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
+            _midBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
+            _FinalBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
+
+
 
             _enemySpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
             _midBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
@@ -159,6 +168,38 @@ namespace STG2
                     _bullets.RemoveAt(i);
                 }
             }
+
+            // Check for collisions
+            _collisionManager.CheckCollisions();
+
+            // Remove dead enemies
+            for (int i = _enemies.Count - 1; i >= 0; i--)
+            {
+                if (_enemies[i].Health <= 0)
+                {
+                    _enemies.RemoveAt(i);
+                }
+            }
+
+            // Remove dead bullets
+            for (int i = _bullets.Count - 1; i >= 0; i--)
+            {
+                if (_bullets[i].Health <= 0)
+                {
+                    _bullets.RemoveAt(i);
+                }
+            }
+
+            // Check if player is dead
+            if (player.Health <= 0)
+            {
+                // Game over - go back to menu
+                Game1.ScreenManager.ChangeScreen(new Menu(Game1));
+            }
+
+
+            Console.WriteLine($"Active bullets: {_bullets.Count} (Player: {_bullets.Count(b => b.MovementStrategy is UpMovement)}, Enemy: {_bullets.Count(b => !(b.MovementStrategy is UpMovement))})");
+            Console.WriteLine($"Player health: {player.Health}");
         }
         
 

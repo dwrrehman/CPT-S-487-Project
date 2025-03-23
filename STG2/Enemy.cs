@@ -20,8 +20,27 @@ namespace STG2
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_texture, new Rectangle((int)Position.X, (int)Position.Y, 70, 70), Color.White);
+            // Draw enemy
+            spriteBatch.Draw(_texture, new Rectangle(
+                (int)Position.X,
+                (int)Position.Y,
+                70, 
+                70),
+                Color.White);
 
+            // Debug: Draw hitbox outline
+#if DEBUG
+            // Red rectangle for hitbox
+            Texture2D debugTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+            debugTexture.SetData(new[] { Color.Red });
+
+            spriteBatch.Draw(debugTexture, new Rectangle(
+                (int)(Position.X + 15),
+                (int)(Position.Y + 15),
+                40,
+                40),
+                Color.Red * 0.5f);
+#endif
         }
 
         public void Update(GameTime gameTime, List<Bullet> bullets,double FireRate)
