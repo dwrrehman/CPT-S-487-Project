@@ -36,6 +36,9 @@ namespace STG2
         EntityFactory _entityFactory = new RegularFactory();
 
         private CollisionManager _collisionManager;
+
+        private HealthBar _healthBar;
+
         public GamePlay(Game1 game1) : base(game1)
         {
         }
@@ -61,6 +64,8 @@ namespace STG2
 
             // Initialize the collision manager
             _collisionManager = new CollisionManager(player, _enemies, _bullets);
+
+            _healthBar = new HealthBar(50, new Vector2(20, 20), 200, 20);
         }
 
         public override void Update(GameTime gameTime)
@@ -85,6 +90,8 @@ namespace STG2
             _enemySpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
             _midBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
             _FinalBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
+
+
             if (_enemySpawnTimer >= 2) // Spawn an enemy every 2 seconds
             {
                 int enemyXPosition = new Random().Next(50, 400);
@@ -199,6 +206,7 @@ namespace STG2
             }
 
 
+            _healthBar.Update(player.Health);
             Console.WriteLine($"Active bullets: {_bullets.Count} (Player: {_bullets.Count(b => b.MovementStrategy is UpMovement)}, Enemy: {_bullets.Count(b => !(b.MovementStrategy is UpMovement))})");
             Console.WriteLine($"Player health: {player.Health}");
         }
@@ -209,8 +217,7 @@ namespace STG2
 
             spriteBatch.Begin();
             base.Draw(gameTime, spriteBatch);
-
-
+            _healthBar.Draw(spriteBatch);
             player.Draw(spriteBatch);
 
             foreach (var enemy in _enemies)
