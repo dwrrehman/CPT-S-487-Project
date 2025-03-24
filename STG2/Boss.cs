@@ -27,6 +27,7 @@ namespace STG2
             // Final Boss: 300 HP (30 player bullets)
             Health = _isMidBoss ? 150 : 300;
         }
+        public bool IsMidBoss => _isMidBoss;
 
         public override void DefaultDraw(SpriteBatch spriteBatch)
         {

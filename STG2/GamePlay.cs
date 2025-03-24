@@ -125,7 +125,7 @@ namespace STG2
                 // Add to enemies list since it's treated as an enemy in the collision system
                 _enemies.Add(midBoss);
 
-                Console.WriteLine("Mid Boss spawned!");
+               // Console.WriteLine("Mid Boss spawned!");
             }
 
             // Final boss spawning logic - spawn after 60 seconds
@@ -138,14 +138,11 @@ namespace STG2
                 Boss finalBoss = _entityFactory.CreatBoss(new Vector2(bossXPosition, 100), _FinalBossTexture, 300);
                 finalBoss.MovementStrategy = new HorizonalMovement();
                 finalBoss.FireStrategy = new EnemyFire(PixelTexture);
-                if (finalBoss.Health <= 0)
-                {
-                    Game1.ScreenManager.ChangeScreen(new WinScreen(Game1));
-                }
+               
                 // Add to enemies list
                 _enemies.Add(finalBoss);
 
-                Console.WriteLine("Final Boss spawned!");
+               // Console.WriteLine("Final Boss spawned!");
             }
 
             // Update enemies
@@ -159,9 +156,10 @@ namespace STG2
             {
                 _bullets[i].Update();
 
-                if (_bullets[i].Position.Y == 0)
+                if (_bullets[i].Position.X < 0 ||_bullets[i].Position.X > 450  ||_bullets[i].Position.Y <0 ||_bullets[i].Position.Y > 850)
                 {
                     _bullets.RemoveAt(i);
+                    continue;
                 }
             }
 
@@ -171,11 +169,26 @@ namespace STG2
             // Remove dead enemies
             for (int i = _enemies.Count - 1; i >= 0; i--)
             {
+                var enemy = _enemies[i];
                 if (_enemies[i].Health <= 0)
                 {
+                    if (enemy is Boss boss)
+                    {
+                        if (!boss.IsMidBoss)
+                        {
+                            Game1.ScreenManager.ChangeScreen(new WinScreen(Game1));
+                            return; 
+                        }
+                    }
+
+
                     _enemies.RemoveAt(i);
                 }
             }
+
+              
+                
+            
 
             // Remove dead bullets
             for (int i = _bullets.Count - 1; i >= 0; i--)
@@ -194,8 +207,8 @@ namespace STG2
             }
           
             _healthBar.Update(player.Health);
-            Console.WriteLine($"Active bullets: {_bullets.Count} (Player: {_bullets.Count(b => b.MovementStrategy is UpMovement)}, Enemy: {_bullets.Count(b => !(b.MovementStrategy is UpMovement))})");
-            Console.WriteLine($"Player health: {player.Health}");
+           // Console.WriteLine($"Active bullets: {_bullets.Count} (Player: {_bullets.Count(b => b.MovementStrategy is UpMovement)}, Enemy: {_bullets.Count(b => !(b.MovementStrategy is UpMovement))})");
+           // Console.WriteLine($"Player health: {player.Health}");
         }
 
 

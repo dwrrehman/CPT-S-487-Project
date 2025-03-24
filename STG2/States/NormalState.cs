@@ -20,7 +20,7 @@ namespace STG2.States
         {
             // In normal state, take full damage
             entity.Health -= damage;
-            Console.WriteLine($"Entity took {damage} damage, health now: {entity.Health}");
+            //Console.WriteLine($"Entity took {damage} damage, health now: {entity.Health}");
 
             // If it's a player, transition to invincible state
             if (entity is Player && entity.Health > 0)

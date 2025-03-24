@@ -61,7 +61,7 @@ namespace STG2
             foreach (var bullet in enemyBullets)
             {
                 // Debug output to confirm enemy bullets are being checked
-                Console.WriteLine($"Checking enemy bullet at position {bullet.Position.X}, {bullet.Position.Y}");
+                //Console.WriteLine($"Checking enemy bullet at position {bullet.Position.X}, {bullet.Position.Y}");
 
                 var command = new EnemyBulletPlayerCollisionCommand((Bullet)bullet, player);
                 command.Execute();

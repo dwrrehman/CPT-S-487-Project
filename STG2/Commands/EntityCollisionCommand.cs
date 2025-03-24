@@ -19,13 +19,13 @@ namespace STG2.Commands
             if (entity1 is Player && entity2 is Enemy)
             {
                 entity1.TakeDamage(10);
-                Console.WriteLine("Player collided with enemy! Player health: " + entity1.Health);
+               // Console.WriteLine("Player collided with enemy! Player health: " + entity1.Health);
             }
             // If entity1 is enemy and entity2 is player, damage player
             else if (entity1 is Enemy && entity2 is Player)
             {
                 entity2.TakeDamage(10);
-                Console.WriteLine("Player collided with enemy! Player health: " + entity2.Health);
+                //Console.WriteLine("Player collided with enemy! Player health: " + entity2.Health);
             }
         }
     }

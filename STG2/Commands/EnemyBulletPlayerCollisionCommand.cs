@@ -27,7 +27,7 @@ namespace STG2.Commands
             bullet.Health = 0;
 
             // Debug message
-            Console.WriteLine("Enemy bullet hit player! Player health: " + player.Health);
+            //Console.WriteLine("Enemy bullet hit player! Player health: " + player.Health);
         }
     }
 }
