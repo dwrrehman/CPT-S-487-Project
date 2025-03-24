@@ -55,18 +55,21 @@ namespace STG2
             _enemyTextureGreen = Game1.Content.Load<Texture2D>("Enemy2");
             _enemies = new List<Enemy>();
             _bullets = new List<Bullet>();
-            _midBossTexture = new Texture2D(Game1.GraphicsDevice, 100, 100);
+
+
+            _midBossTexture = Game1.Content.Load<Texture2D>("Enemy1");  // Use Enemy1 for mid boss
+            _FinalBossTexture = Game1.Content.Load<Texture2D>("Enemy2"); // Use Enemy2 for final boss
+
             PixelTexture = Game1.Content.Load<Texture2D>("eb");
 
             player.FireStrategy = new RegularFire(_bulletTexture);
-
-            _FinalBossTexture = new Texture2D(Game1.GraphicsDevice, 150, 150);
 
             // Initialize the collision manager
             _collisionManager = new CollisionManager(player, _enemies, _bullets);
 
             _healthBar = new HealthBar(50, new Vector2(20, 20), 200, 20);
         }
+
 
         public override void Update(GameTime gameTime)
         {
@@ -76,7 +79,6 @@ namespace STG2
             if (_currentKeyboard.IsKeyDown(Keys.Escape) || _currentGamePad.IsButtonDown(Buttons.Start))
             {
                 Game1.ScreenManager.ChangeScreen(new Menu(Game1));
-
             }
 
             player.Update(gameTime, _bullets, 0.3);
@@ -85,13 +87,7 @@ namespace STG2
             _midBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
             _FinalBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
-
-
-            _enemySpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
-            _midBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
-            _FinalBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
-
-
+            // Regular enemy spawning logic
             if (_enemySpawnTimer >= 2) // Spawn an enemy every 2 seconds
             {
                 int enemyXPosition = new Random().Next(50, 400);
@@ -99,74 +95,63 @@ namespace STG2
                 // Alternate between spawning Red and Green enemies
                 if (_enemies.Count % 2 == 0)
                 {
-                    // Red enemy moves **straight down**
+                    // Red enemy moves straight down
                     Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(enemyXPosition, 50), _enemyTexture, 3, new DownMovement());
                     newEnemy.FireStrategy = new EnemyFire(PixelTexture);
                     _enemies.Add(newEnemy);
-
                 }
                 else
                 {
-                    // Green enemy moves **side-to-side in mid-screen**
+                    // Green enemy moves side-to-side in mid-screen
                     Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(0, 300), _enemyTextureGreen, 3, new HorizonalMovement());
                     newEnemy.FireStrategy = new EnemyFire(PixelTexture);
-
                     _enemies.Add(newEnemy);
-
-
                 }
 
                 _enemySpawnTimer = 0;
-                //_enemies.Add(new Enemy(new Vector2(Random.Shared.Next(50, 400), 50), _texture3, 3, 2, direction.Down, 1.5));
-                //_enemySpawnTimer = 0;
             }
-            if (_enemySpawnTimer >= 2) // Spawn an enemy every 2 seconds
+
+            // Mid boss spawning logic - spawn after 30 seconds
+            if (_midBossSpawnTimer >= 30 && _midBossSpawned)
             {
-                int enemyXPosition = new Random().Next(50, 400);
-
-                // Alternate between spawning Red and Green enemies
-                if (_enemies.Count % 2 == 0)
-                {
-                    // Red enemy moves **straight down**
-
-                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(enemyXPosition, 50), _enemyTexture, 3, new DownMovement());
-                    newEnemy.FireStrategy = new EnemyFire(PixelTexture);
-
-                    _enemies.Add(newEnemy);
-
-                }
-                else
-                {
-                    // Green enemy moves **side-to-side in mid-screen**
-                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(0, 300), _enemyTextureGreen, 3, new HorizonalMovement());
-                    newEnemy.FireStrategy = new EnemyFire(PixelTexture);
-
-                    _enemies.Add(newEnemy);
-
-
-                }
-
-                _enemySpawnTimer = 0;
-                //_enemies.Add(new Enemy(new Vector2(Random.Shared.Next(50, 400), 50), _texture3, 3, 2, direction.Down, 1.5));
-                //_enemySpawnTimer = 0;
-            }
-            if (_midBossSpawnTimer >= 10 && _midBossSpawned)
-            {
-                int enemyXPosition = new Random().Next(50, 400);
+                int bossXPosition = new Random().Next(100, 300);
                 _midBossSpawned = false;
 
+                // Create mid boss with horizontal movement
+                Boss midBoss = _entityFactory.CreatBoss(new Vector2(bossXPosition, 100), _midBossTexture, 150);
+                midBoss.MovementStrategy = new HorizonalMovement();
+                midBoss.FireStrategy = new EnemyFire(PixelTexture);
+
+                // Add to enemies list since it's treated as an enemy in the collision system
+                _enemies.Add(midBoss);
+
+                Console.WriteLine("Mid Boss spawned!");
             }
-            if (_FinalBossSpawnTimer >= 15 && _FinalBossSpawned)
+
+            // Final boss spawning logic - spawn after 60 seconds
+            if (_FinalBossSpawnTimer >= 60 && _FinalBossSpawned)
             {
-                int enemyXPosition = new Random().Next(50, 400);
+                int bossXPosition = new Random().Next(100, 300);
                 _FinalBossSpawned = false;
 
+                // Create final boss with horizontal movement
+                Boss finalBoss = _entityFactory.CreatBoss(new Vector2(bossXPosition, 100), _FinalBossTexture, 300);
+                finalBoss.MovementStrategy = new HorizonalMovement();
+                finalBoss.FireStrategy = new EnemyFire(PixelTexture);
+
+                // Add to enemies list
+                _enemies.Add(finalBoss);
+
+                Console.WriteLine("Final Boss spawned!");
             }
+
             // Update enemies
             foreach (var enemy in _enemies)
             {
                 enemy.Update(gameTime, _bullets, 1);
             }
+
+            // Update bullets
             for (int i = _bullets.Count - 1; i >= 0; i--)
             {
                 _bullets[i].Update();
@@ -204,7 +189,6 @@ namespace STG2
                 // Game over - go back to menu
                 Game1.ScreenManager.ChangeScreen(new Menu(Game1));
             }
-
 
             _healthBar.Update(player.Health);
             Console.WriteLine($"Active bullets: {_bullets.Count} (Player: {_bullets.Count(b => b.MovementStrategy is UpMovement)}, Enemy: {_bullets.Count(b => !(b.MovementStrategy is UpMovement))})");

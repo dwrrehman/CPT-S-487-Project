@@ -12,15 +12,14 @@ namespace STG2
 {
     internal class RegularFactory : EntityFactory
     {
-        public  Boss CreatBoss(Vector2 Position, Texture2D Texture, int Health)
+        public Boss CreatBoss(Vector2 Position, Texture2D Texture, int Health)
         {
             Boss boss = new Boss(
-            position: Position,
-            texture: Texture,
-            health: Health,
-            speed: 5
-
-        );
+                position: Position,
+                texture: Texture,
+                health: Health,
+                speed: 3 
+            );
 
             return boss;
         }

@@ -7,6 +7,22 @@
       "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\gameplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\regularfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\regularfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|c:\\users\\haris\\source\\repos\\cpt-s-487-project\\stg2\\ui\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C000C2BD-F763-4833-9953-49DD12E19AC1}|STG2\\STG2.csproj|solutionrelative:stg2\\ui\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,20 +50,89 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegularFactory.cs",
+              "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\RegularFactory.cs",
+              "RelativeDocumentMoniker": "STG2\\RegularFactory.cs",
+              "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\RegularFactory.cs",
+              "RelativeToolTip": "STG2\\RegularFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T20:55:51.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Game1.cs",
+              "RelativeDocumentMoniker": "STG2\\Game1.cs",
+              "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Game1.cs",
+              "RelativeToolTip": "STG2\\Game1.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T20:49:27.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Enemy.cs",
+              "RelativeDocumentMoniker": "STG2\\Enemy.cs",
+              "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Enemy.cs",
+              "RelativeToolTip": "STG2\\Enemy.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAhwFUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T20:34:34.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Boss.cs",
+              "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Boss.cs",
+              "RelativeDocumentMoniker": "STG2\\Boss.cs",
+              "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Boss.cs",
+              "RelativeToolTip": "STG2\\Boss.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T20:15:30.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GamePlay.cs",
+              "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\GamePlay.cs",
+              "RelativeDocumentMoniker": "STG2\\GamePlay.cs",
+              "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\GamePlay.cs",
+              "RelativeToolTip": "STG2\\GamePlay.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAgwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T03:43:13.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "HealthBar.cs",
               "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\UI\\HealthBar.cs",
               "RelativeDocumentMoniker": "STG2\\UI\\HealthBar.cs",
               "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\UI\\HealthBar.cs",
               "RelativeToolTip": "STG2\\UI\\HealthBar.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAwwE4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAowE4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-23T16:17:02.933Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "CollisionManager.cs",
               "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\Commands\\CollisionManager.cs",
               "RelativeDocumentMoniker": "STG2\\Commands\\CollisionManager.cs",
@@ -60,20 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GamePlay.cs",
-              "DocumentMoniker": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\GamePlay.cs",
-              "RelativeDocumentMoniker": "STG2\\GamePlay.cs",
-              "ToolTip": "C:\\Users\\haris\\source\\repos\\CPT-S-487-Project\\STG2\\GamePlay.cs",
-              "RelativeToolTip": "STG2\\GamePlay.cs",
-              "ViewState": "AgIAAJIAAAAAAAAAAAAgwNsAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T03:43:13.076Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "STG2.csproj",
               "DocumentMoniker": "C:\\Users\\haris\\Source\\Repos\\CPT-S-487-Project\\STG2\\STG2.csproj",
               "RelativeDocumentMoniker": "STG2\\STG2.csproj",
