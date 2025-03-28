@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 namespace STG2
 {
@@ -70,8 +70,15 @@ namespace STG2
     }
 
 
-    internal class CircleMovement : Movement
+    internal class TrackingMovement : Movement
     {
+        private Player _player;
+
+        public TrackingMovement(Player player)
+        {
+            _player = player;
+        }
+
         public void Move()
         {
             throw new NotImplementedException();
@@ -79,7 +86,16 @@ namespace STG2
 
         public void MoveStrategy(Entity entity)
         {
-            throw new NotImplementedException();
+            Vector2 dir = _player.Position - entity.Position;
+
+
+            if (dir.Length() > 0.001f)
+            {
+                dir.Normalize();     
+                dir *= entity.Speed; 
+                entity.Position += dir;
+            }
+
         }
     }
 

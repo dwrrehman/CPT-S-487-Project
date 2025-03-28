@@ -12,7 +12,7 @@ namespace STG2
 {
     internal class RegularFactory : EntityFactory
     {
-        public Boss CreatBoss(Vector2 Position, Texture2D Texture, int Health)
+        public Boss CreatBoss(Vector2 Position, Texture2D Texture, int Health, Movement movement,Fire fire)
         {
             Boss boss = new Boss(
                 position: Position,
@@ -20,7 +20,8 @@ namespace STG2
                 health: Health,
                 speed: 3 
             );
-
+            boss.MovementStrategy = movement;
+            boss.FireStrategy = fire;
             return boss;
         }
 
@@ -59,7 +60,7 @@ namespace STG2
             return bullet;
         }
 
-        public Enemy CreateEnemy(Vector2 Position,Texture2D Texture,int Health,Movement movement)
+        public Enemy CreateEnemy(Vector2 Position,Texture2D Texture,int Health,Movement movement,Fire fire)
         {
             Enemy enemy = new Enemy(
             position: Position,
@@ -69,6 +70,7 @@ namespace STG2
 
         );
             enemy.MovementStrategy = movement;
+            enemy.FireStrategy = fire;
             return enemy;
         }
         

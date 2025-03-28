@@ -11,9 +11,9 @@ namespace STG2
     public class ScreenManager
     {
 
-        private MenuScreen _MenuScreen;
+        private Screen _MenuScreen;
 
-        public void ChangeScreen(MenuScreen menuScreen)
+        public void ChangeScreen(Screen menuScreen)
         {
           
             _MenuScreen = menuScreen;

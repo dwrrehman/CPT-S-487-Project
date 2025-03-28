@@ -15,7 +15,7 @@ namespace STG2
 {
 
 
-    internal class Setting:MenuScreen
+    internal class Setting:Screen
     {
 
         private Texture2D _button;

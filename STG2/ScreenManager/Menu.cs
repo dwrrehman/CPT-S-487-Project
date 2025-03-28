@@ -12,7 +12,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace STG2
 {
-    internal class Menu:MenuScreen{
+    internal class Menu:Screen{
 
         private MouseState _currentMouse;
         private SpriteFont _font;

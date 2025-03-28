@@ -1,0 +1,23 @@
+ [
+    {
+      "Duration": 15,
+      "SpawnInterval": 2,
+      "EnemyType": "Enemy1"
+    },
+    {
+      "Duration": 20,
+      "SpawnInterval": 2,
+      "EnemyType": "Enemy2"
+    },
+    {
+      "Duration": 20,
+      "SpawnInterval": 1,
+      "EnemyType": "MidBoss"
+    },
+    {
+      "Duration": 30,
+      "SpawnInterval": 1,
+      "EnemyType": "FinalBoss"
+    }
+  ]
+

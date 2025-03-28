@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace STG2
 {
-    public abstract class MenuScreen
+    public abstract class Screen
     {
         protected Game1 Game1;
         protected Texture2D _background;
         protected Vector2 _position;
         protected float _speed;
 
-        public MenuScreen(Game1 game1)
+        public Screen(Game1 game1)
         {
             Game1 = game1;
         }

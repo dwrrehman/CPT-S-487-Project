@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace STG2
 {
 
-    internal class GamePlay : MenuScreen
+    internal class GamePlay : Screen
     {
         private Player player;
         private Texture2D playerImage;
@@ -32,8 +32,9 @@ namespace STG2
         private bool _FinalBossSpawned = true;
         private KeyboardState _currentKeyboard;
         private GamePadState _currentGamePad;
-
+        private WaveManager _waveManager;
         EntityFactory _entityFactory = new RegularFactory();
+        private SpriteFont _font;
 
         private CollisionManager _collisionManager;
 
@@ -55,6 +56,7 @@ namespace STG2
             _enemyTextureGreen = Game1.Content.Load<Texture2D>("Enemy2");
             _enemies = new List<Enemy>();
             _bullets = new List<Bullet>();
+            _font = Game1.Content.Load<SpriteFont>("Fonts");
 
 
             _midBossTexture = Game1.Content.Load<Texture2D>("Enemy1");  // Use Enemy1 for mid boss
@@ -64,10 +66,14 @@ namespace STG2
 
             player.FireStrategy = new RegularFire(_bulletTexture);
 
+            List<Wave> loadedWaves = WaveManager.LoadWavesFromJson("Gameplay.json");
+            _waveManager = new WaveManager(player,loadedWaves);
+
             // Initialize the collision manager
             _collisionManager = new CollisionManager(player, _enemies, _bullets);
 
             _healthBar = new HealthBar(50, new Vector2(20, 20), 200, 20);
+
         }
 
 
@@ -82,75 +88,13 @@ namespace STG2
             }
 
             player.Update(gameTime, _bullets, 0.3);
+            _waveManager.Update(gameTime, _enemies, _entityFactory,_enemyTexture,_enemyTextureGreen,_midBossTexture,_FinalBossTexture,PixelTexture);
 
-            _enemySpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
-            _midBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
-            _FinalBossSpawnTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
-            // Regular enemy spawning logic
-            if (_enemySpawnTimer >= 2) // Spawn an enemy every 2 seconds
-            {
-                int enemyXPosition = new Random().Next(50, 400);
-
-                // Alternate between spawning Red and Green enemies
-                if (_enemies.Count % 2 == 0)
-                {
-                    // Red enemy moves straight down
-                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(enemyXPosition, 50), _enemyTexture, 3, new DownMovement());
-                    newEnemy.FireStrategy = new EnemyFire(PixelTexture);
-                    _enemies.Add(newEnemy);
-                }
-                else
-                {
-                    // Green enemy moves side-to-side in mid-screen
-                    Enemy newEnemy = _entityFactory.CreateEnemy(new Vector2(0, 300), _enemyTextureGreen, 3, new HorizonalMovement());
-                    newEnemy.FireStrategy = new EnemyFire(PixelTexture);
-                    _enemies.Add(newEnemy);
-                }
-
-                _enemySpawnTimer = 0;
-            }
-
-            // Mid boss spawning logic - spawn after 30 seconds
-            if (_midBossSpawnTimer >= 30 && _midBossSpawned)
-            {
-                int bossXPosition = new Random().Next(100, 300);
-                _midBossSpawned = false;
-
-                // Create mid boss with horizontal movement
-                Boss midBoss = _entityFactory.CreatBoss(new Vector2(bossXPosition, 100), _midBossTexture, 150);
-                midBoss.MovementStrategy = new HorizonalMovement();
-                midBoss.FireStrategy = new EnemyFire(PixelTexture);
-
-                // Add to enemies list since it's treated as an enemy in the collision system
-                _enemies.Add(midBoss);
-
-               // Console.WriteLine("Mid Boss spawned!");
-            }
-
-            // Final boss spawning logic - spawn after 60 seconds
-            if (_FinalBossSpawnTimer >= 60 && _FinalBossSpawned)
-            {
-                int bossXPosition = new Random().Next(100, 300);
-                _FinalBossSpawned = false;
-
-                // Create final boss with horizontal movement
-                Boss finalBoss = _entityFactory.CreatBoss(new Vector2(bossXPosition, 100), _FinalBossTexture, 300);
-                finalBoss.MovementStrategy = new HorizonalMovement();
-                finalBoss.FireStrategy = new EnemyFire(PixelTexture);
-               
-                // Add to enemies list
-                _enemies.Add(finalBoss);
-
-               // Console.WriteLine("Final Boss spawned!");
-            }
-
-            // Update enemies
             foreach (var enemy in _enemies)
             {
                 enemy.Update(gameTime, _bullets, 1);
             }
-
             // Update bullets
             for (int i = _bullets.Count - 1; i >= 0; i--)
             {
@@ -186,9 +130,8 @@ namespace STG2
                 }
             }
 
-              
-                
-            
+
+
 
             // Remove dead bullets
             for (int i = _bullets.Count - 1; i >= 0; i--)
@@ -200,7 +143,9 @@ namespace STG2
             }
 
             // Check if player is dead
-            if (player.Health <= 0)
+            bool isTimeOutLose = _waveManager.Finalbossalive(gameTime, _enemies);
+
+            if (player.Health <= 0 || isTimeOutLose)
             {
                 // Game over - go back to menu
                 Game1.ScreenManager.ChangeScreen(new LoseScreen(Game1));
@@ -218,6 +163,14 @@ namespace STG2
             spriteBatch.Begin();
             base.Draw(gameTime, spriteBatch);
             _healthBar.Draw(spriteBatch);
+            float remain = _waveManager.GetCurrentWaveRemainingTime();
+            int waveIndex = _waveManager.GetCurrentWaveIndex() + 1;
+
+            string waveText = $"Wave {waveIndex}: {remain:F1} s left";
+            Vector2 textPos = new Vector2(230, 25);
+
+            spriteBatch.DrawString(_font, waveText, textPos, Color.White);
+
             player.Draw(spriteBatch);
 
             foreach (var enemy in _enemies)

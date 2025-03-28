@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace STG2
 {
-    internal class LoseScreen : MenuScreen
+    internal class LoseScreen : Screen
     {
 
         private MouseState _currentMouse;

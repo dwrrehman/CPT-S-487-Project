@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace STG2
 {
-    internal class WinScreen : MenuScreen
+    internal class WinScreen : Screen
     {
 
         private MouseState _currentMouse;

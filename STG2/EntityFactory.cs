@@ -11,13 +11,13 @@ namespace STG2
 {
     internal interface EntityFactory
     {
-        Enemy CreateEnemy(Vector2 Position,Texture2D Texture, int Health,Movement movement);
+        Enemy CreateEnemy(Vector2 Position,Texture2D Texture, int Health,Movement movement,Fire fire);
 
 
         Player CreatePlayer(Texture2D Texture);
 
         Bullet CreateBullet(Texture2D Texture,Entity entity, Movement movement);
 
-        Boss CreatBoss(Vector2 Position, Texture2D Texture, int Health);
+        Boss CreatBoss(Vector2 Position, Texture2D Texture, int Health,Movement movement, Fire fire);
     }
 }

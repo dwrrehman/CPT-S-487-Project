@@ -22,13 +22,14 @@ namespace STG2
             _graphics.PreferredBackBufferWidth = 480;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-           
+
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
             base.Initialize();
+
         }
 
         protected override void LoadContent()
