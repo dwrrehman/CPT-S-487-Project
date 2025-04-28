@@ -27,7 +27,7 @@ namespace STG2
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+
             base.Initialize();
 
         }
@@ -42,7 +42,6 @@ namespace STG2
 
 
 
-            // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
@@ -58,7 +57,6 @@ namespace STG2
         
         protected override void Draw(GameTime gameTime)
         {
-            // TODO: Add your drawing code here
             GraphicsDevice.Clear(Color.Transparent);
 
 

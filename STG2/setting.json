@@ -1,0 +1,30 @@
+{
+  "keyBinds": [
+    {
+      "name": "Up",
+      "key": "Up",
+      "gamepad": "DPadUp"
+    },
+    {
+      "name": "Down",
+      "key": "Down",
+      "gamepad": "DPadDown"
+    },
+    {
+      "name": "Left",
+      "key": "Left",
+      "gamepad": "DPadLeft"
+    },
+    {
+      "name": "Right",
+      "key": "Right",
+      "gamepad": "DPadRight"
+    },
+    {
+      "name": "Attack",
+      "key": "Enter",
+      "gamepad": "A"
+    },
+    { "name": "Bomb", "key": "B", "gamepad": "RightShoulder" }
+  ]
+}
