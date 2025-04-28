@@ -18,6 +18,7 @@ namespace STG2
         private static Vector2 Direction;
         private static KeyBindList _keyList = new KeyBindList();
         public static bool Attack { get;  set; }
+        public static bool Bomb { get; private set; }
         public static Vector2 currentDirection=>Direction;
         private static KeyBindList LoadFromJson(string filePath)
         {
@@ -65,12 +66,16 @@ namespace STG2
             Keys rightKey = (Keys)Enum.Parse(typeof(Keys), rightStr);
             Keys attackKey = (Keys)Enum.Parse(typeof(Keys), attackStr);
 
+            Keys bombKey   = Enum.Parse<Keys>(_keyList.GetKeyByName("Bomb"));
+
+
             if (keyboardState.IsKeyDown(upKey)) Kdirection.Y--;
             if (keyboardState.IsKeyDown(downKey)) Kdirection.Y++;
             if (keyboardState.IsKeyDown(leftKey)) Kdirection.X--;
             if (keyboardState.IsKeyDown(rightKey)) Kdirection.X++;
             if (keyboardState.IsKeyDown(attackKey)) ifattack = true;
 
+            bool bombK = keyboardState.IsKeyDown(bombKey);
 
             if (gamePad.IsConnected)
             {
@@ -86,6 +91,8 @@ namespace STG2
                 Buttons leftBtn = (Buttons)Enum.Parse(typeof(Buttons), leftPadStr);
                 Buttons rightBtn = (Buttons)Enum.Parse(typeof(Buttons), rightPadStr);
                 Buttons attackBtn = (Buttons)Enum.Parse(typeof(Buttons), attackPadStr);
+                Buttons bombBtn  = Enum.Parse<Buttons>(_keyList.GetpadByName("Bomb"));
+
 
                 if (gamePad.IsButtonDown(upBtn)) Gdirection.Y--;
                 if (gamePad.IsButtonDown(downBtn)) Gdirection.Y++;
@@ -93,6 +100,7 @@ namespace STG2
                 if (gamePad.IsButtonDown(rightBtn)) Gdirection.X++;
                 if (gamePad.IsButtonDown(attackBtn)) ifpadattack = true;
 
+                bombK |= gamePad.IsButtonDown(bombBtn);                 // NEW (bomb)
 
             }
 
@@ -101,6 +109,8 @@ namespace STG2
             Attack = finalAttack;
 
             Direction = Gdirection + Kdirection;
+
+            Bomb = bombK;
 
         }
 

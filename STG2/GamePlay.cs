@@ -12,8 +12,10 @@ namespace STG2
 
     internal class GamePlay : Screen
     {
+        private BombManager _bombManager;
         private Player player;
         private Texture2D playerImage;
+        private Texture2D _bombIcon;
 
         private List<Enemy> _enemies;
         private List<Bullet> _bullets;
@@ -57,6 +59,9 @@ namespace STG2
             _enemies = new List<Enemy>();
             _bullets = new List<Bullet>();
             _font = Game1.Content.Load<SpriteFont>("Fonts");
+            _bombManager = new BombManager(Game1.GraphicsDevice, _font);
+            _bombIcon = Game1.Content.Load<Texture2D>("missile");
+
 
 
             _midBossTexture = Game1.Content.Load<Texture2D>("Enemy1");  // Use Enemy1 for mid boss
@@ -87,7 +92,8 @@ namespace STG2
                 Game1.ScreenManager.ChangeScreen(new Menu(Game1));
             }
 
-            player.Update(gameTime, _bullets, 0.3);
+            player.Update(gameTime, _bullets, 0.3, _enemies, _bombManager);
+
             _waveManager.Update(gameTime, _enemies, _entityFactory,_enemyTexture,_enemyTextureGreen,_midBossTexture,_FinalBossTexture,PixelTexture);
 
 
@@ -154,6 +160,9 @@ namespace STG2
             _healthBar.Update(player.Health);
            // Console.WriteLine($"Active bullets: {_bullets.Count} (Player: {_bullets.Count(b => b.MovementStrategy is UpMovement)}, Enemy: {_bullets.Count(b => !(b.MovementStrategy is UpMovement))})");
            // Console.WriteLine($"Player health: {player.Health}");
+
+           player.Update(gameTime, _bullets, 0.3, _enemies, _bombManager);
+           _bombManager.Update(gameTime);
         }
 
 
@@ -163,6 +172,16 @@ namespace STG2
             spriteBatch.Begin();
             base.Draw(gameTime, spriteBatch);
             _healthBar.Draw(spriteBatch);
+
+            // bomb
+            Vector2 bombPos = new Vector2(20, 50);           // below the health bar
+            spriteBatch.DrawString(_font, $"x {player.Bombs}", bombPos + new Vector2(34, 4), Color.White);
+
+            if (_bombIcon != null)
+                spriteBatch.Draw(_bombIcon,
+                    new Rectangle((int)bombPos.X, (int)bombPos.Y, 28, 28),
+                    Color.White);
+
             float remain = _waveManager.GetCurrentWaveRemainingTime();
             int waveIndex = _waveManager.GetCurrentWaveIndex() + 1;
 
@@ -182,6 +201,7 @@ namespace STG2
             {
                 bullet.Draw(spriteBatch);
             }
+            _bombManager.Draw(spriteBatch);
             spriteBatch.End();
         }
     }
