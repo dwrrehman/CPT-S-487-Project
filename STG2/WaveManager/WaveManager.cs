@@ -104,10 +104,21 @@ namespace STG2
             float x = rand.Next(50, 400);
             float y = 50;
 
+
             switch (Enemytype)
             {
+//                case "Special-attack":
+//                    var chainEnemy = factory.CreateBoss(
+//                        new Vector2(x, y),
+//                        finalboss,                // reuse a texture
+//                        3,
+//                        new DownMovement(),     // or TrackingMovement
+//                        new BrokenThreadFire(pixel, spacing: 0.14f, angleStep: 0.12f, angularVel: 0.012f));
+//                    enemies.Add(chainEnemy);
+//                    break;
+
                 case "Enemy1":
-                    var enemy1 = factory.CreateEnemy(new Vector2(x, y), Renemy1, 3, new DownMovement(),new EnemyFire(pixel));
+                    var enemy1 = factory.CreateEnemy(new Vector2(x, y), Renemy1, 3, new DownMovement(), new EnemyFire(pixel));
                     enemies.Add(enemy1);
 
                     break;
@@ -120,7 +131,10 @@ namespace STG2
                     enemies.Add(mb);
                     break;
                 case "FinalBoss":
-                    var fb = factory.CreatBoss(new Vector2(x, y), finalboss, 300, new HorizonalMovement(), new EnemyFire(pixel));
+                    var necklace   = new BrokenThreadFire(pixel, spacing:0.24f, angleStep:0.15f);
+                    var ringSpray  = new ConcentricRingFire(pixel, bulletsPerRing:24,
+                                                            ringInterval:4.0f, bulletSpeed:2.5f);
+                    var fb = factory.CreatBoss(new Vector2(x, 250), finalboss, 300, new HorizonalMovement(), new MultiFire(necklace, ringSpray));
                     enemies.Add(fb);
                     break;
             }

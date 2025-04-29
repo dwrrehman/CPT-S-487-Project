@@ -24,6 +24,7 @@ namespace STG2
 
         private Texture2D _enemyTextureGreen;
         private Texture2D _bulletTexture;
+//        private Texture2D _necklaceBulletTex;
         public Texture2D PixelTexture;
         private Texture2D _midBossTexture;
         private Texture2D _FinalBossTexture;
@@ -62,6 +63,7 @@ namespace STG2
             _bombManager = new BombManager(Game1.GraphicsDevice, _font);
             _bombIcon = Game1.Content.Load<Texture2D>("missile");
 
+//            _necklaceBulletTex = Game1.Content.Load<Texture2D>("pearl");
 
 
             _midBossTexture = Game1.Content.Load<Texture2D>("Enemy1");  // Use Enemy1 for mid boss
