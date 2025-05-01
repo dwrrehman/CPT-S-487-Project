@@ -6,13 +6,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using STG2.Commands;
 
 namespace STG2
 {
     class Player : Entity
     {
         private Texture2D _texture;
+
+
         public Fire FireStrategy { get; set; }
+        public int Bombs { get; set; } = 3;
+        private float _bombCooldown = 0f;
 
         private const float SpeedMultiplier = 1.75f; // 75% faster in fast mode
 
@@ -31,8 +36,8 @@ namespace STG2
                 destinationRectangle: new Rectangle(
                     (int)this.Position.X,
                     (int)this.Position.Y,
-                    80, 
-                    80),
+                    130, 
+                    130),
                 color: Color.White);
         }
 
@@ -43,8 +48,8 @@ namespace STG2
                 destinationRectangle: new Rectangle(
                     (int)this.Position.X,
                     (int)this.Position.Y,
-                    80, 
-                    80),
+                    130, 
+                    130),
                 color: color);
         }
 
@@ -60,7 +65,7 @@ namespace STG2
             debugTexture.SetData(new[] { Color.Red });
 
             spriteBatch.Draw(debugTexture, new Rectangle(
-                (int)(Position.X + (80 - 60) / 2),
+                (int)(Position.X + (80-10) / 2),
                 (int)(Position.Y + (80 - 40) / 2),
                 60,
                 40),
@@ -68,7 +73,7 @@ namespace STG2
 #endif
         }
 
-        public void Update(GameTime gameTime, List<Bullet> bullets, double Firerate)
+        public void Update(GameTime gameTime, List<Bullet> bullets, double Firerate, List<Enemy> enemies,BombManager bombMgr)
         {
             // Call base update for state management
             base.Update(gameTime);
@@ -99,6 +104,22 @@ namespace STG2
             {
                 FireStrategy.Fire(this, gameTime, bullets, Firerate);
             }
+            if (_bombCooldown > 0)
+                _bombCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            // bomb trigger
+            if (InputManager.Bomb && Bombs > 0 && _bombCooldown <= 0)
+                UseBomb(bullets, enemies, bombMgr);
+        }
+
+        private void UseBomb(List<Bullet> bullets, List<Enemy> enemies,
+                             BombManager bombMgr)
+        {
+            Bombs--;
+            _bombCooldown = 1.0f;        // 1-second gap before next bomb
+            var cmd = new BombCommand(this, bullets, enemies);
+            cmd.Execute();
+            bombMgr.Trigger();      // optional screen flash
         }
     }
 }

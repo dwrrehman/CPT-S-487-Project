@@ -39,6 +39,32 @@ namespace STG2
         }
     }
 
+    internal class UpLeftMovement : Movement
+    {
+        public void Move()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoveStrategy(Entity entity)
+        {
+            entity.Position = new Vector2(entity.Position.X-entity.Speed, entity.Position.Y - entity.Speed);
+        }
+    }
+
+    internal class UpRightMovement : Movement
+    {
+        public void Move()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoveStrategy(Entity entity)
+        {
+            entity.Position = new Vector2(entity.Position.X+entity.Speed, entity.Position.Y - entity.Speed);
+        }
+    }
+
     internal class HorizonalMovement : Movement
     {
 

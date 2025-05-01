@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using SharpDX.Direct3D9;
+// using SharpDX.Direct3D9;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,8 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace STG2
 {
-    internal class Menu:Screen{
+    internal class Menu : Screen
+    {
 
         private MouseState _currentMouse;
         private SpriteFont _font;
@@ -25,7 +26,7 @@ namespace STG2
         private Rectangle _start;
         private Rectangle _setting;
         private bool _usingGamepad = false;
-  
+
         private int index = 0;
         Color startcolor, settingcolor;
         private Rectangle[] _padbind;
@@ -36,12 +37,12 @@ namespace STG2
         public override void Show()
         {
             base.Show();
-            _background = Game1.Content.Load<Texture2D>("background3");
+            _background = Game1.Content.Load<Texture2D>("jojo3");
             _button = Game1.Content.Load<Texture2D>("button2");
             _font = Game1.Content.Load<SpriteFont>("Fonts");
-            _start = new Rectangle(100, 300, _button.Width,_button.Height);
+            _start = new Rectangle(100, 300, _button.Width, _button.Height);
             _setting = new Rectangle(100, 500, _button.Width, _button.Height);
-            _padbind = new Rectangle[] { _start,_setting };
+            _padbind = new Rectangle[] { _start, _setting };
             var mouse = Mouse.GetState();
             _previousMouse = mouse;
             _currentMouse = mouse;
@@ -52,7 +53,8 @@ namespace STG2
             _currentGamePad = gp;
             _speed = 4;
         }
-        public override void Update(GameTime gameTime){
+        public override void Update(GameTime gameTime)
+        {
             base.Update(gameTime);
 
             _previousMouse = _currentMouse;
@@ -130,15 +132,15 @@ namespace STG2
                 else
                     settingcolor = Color.White;
 
-            
+
 
             }
 
 
-      
+
             if (_start.Contains(_currentMouse.X, _currentMouse.Y))
             {
-                if (_currentMouse.LeftButton == ButtonState.Pressed &&_previousMouse.LeftButton == ButtonState.Released
+                if (_currentMouse.LeftButton == ButtonState.Pressed && _previousMouse.LeftButton == ButtonState.Released
                    )
                 {
                     Game1.ScreenManager.ChangeScreen(new GamePlay(Game1));
@@ -155,10 +157,11 @@ namespace STG2
                 }
             }
         }
-       
-    
 
-         public override void Draw(GameTime gameTime,SpriteBatch spriteBatch){
+
+
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
 
             spriteBatch.Begin();
             base.Draw(gameTime, spriteBatch);

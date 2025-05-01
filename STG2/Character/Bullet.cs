@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace STG2
 {
-    internal class Bullet:Entity
+    internal class Bullet : Entity
     {
 
-        private  Texture2D _texture;
+        private Texture2D _texture;
         public Movement MovementStrategy { get; set; }
+        public Color Tint { get; set; } = Color.White;
 
         public Bullet(Vector2 position, Texture2D texture, int health, int speed)
             : base(position, texture.Width, texture.Height, health, speed)
@@ -41,7 +42,7 @@ namespace STG2
                     (int)Position.Y,
                     30, // Increased from 20
                     50), // Increased from 40
-                    Color.Red); // Changed to RED for better visibility
+                    Tint); // Changed to RED for better visibility
             }
 
             // Debug: Draw hitbox outline

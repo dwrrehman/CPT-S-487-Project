@@ -11,23 +11,23 @@ namespace STG2
     public class ScreenManager
     {
 
-        private Screen _MenuScreen;
+        private Screen _currentScreen;
 
-        public void ChangeScreen(Screen menuScreen)
+        public void ChangeScreen(Screen screen)
         {
-          
-            _MenuScreen = menuScreen;
-            _MenuScreen.Show();
+
+            _currentScreen = screen;
+            _currentScreen.Show();
         }
 
         public void Update(GameTime gameTime)
         {
-            _MenuScreen.Update(gameTime);
+            _currentScreen.Update(gameTime);
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            _MenuScreen.Draw(gameTime, spriteBatch);
+            _currentScreen.Draw(gameTime, spriteBatch);
         }
     }
 }

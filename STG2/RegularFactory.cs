@@ -12,25 +12,27 @@ namespace STG2
 {
     internal class RegularFactory : EntityFactory
     {
-        public Boss CreatBoss(Vector2 Position, Texture2D Texture, int Health, Movement movement,Fire fire)
+        public Boss CreatBoss(Vector2 Position, Texture2D Texture,bool _isMidBoss, int Health, Movement movement,Fire fire)
         {
             Boss boss = new Boss(
                 position: Position,
                 texture: Texture,
+                isMidBoss: _isMidBoss,
                 health: Health,
                 speed: 3 
             );
             boss.MovementStrategy = movement;
             boss.FireStrategy = fire;
+
             return boss;
         }
 
         public Bullet CreateBullet(Texture2D Texture, Entity entity, Movement movement)
-        {
+            {
             // Calculate bullet position based on entity center
             Vector2 bulletPosition;
 
-            if (movement is UpMovement)
+            if (movement is UpMovement || movement is UpLeftMovement || movement is UpRightMovement)
             {
                 // Player bullets shoot from top center of player's hitbox
                 bulletPosition = new Vector2(
@@ -40,8 +42,10 @@ namespace STG2
             else
             {
                 // Enemy bullets shoot from bottom center of enemy
+                float offsetX = (entity.Width - Texture.Width) / 2;
+
                 bulletPosition = new Vector2(
-                    entity.Position.X + entity.Width / 2 - 15, 
+                    entity.Position.X + offsetX, 
                     entity.Position.Y + entity.Height); 
             }
 

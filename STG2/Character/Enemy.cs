@@ -11,6 +11,9 @@ namespace STG2
         public Movement MovementStrategy { get; set; }
         public Fire FireStrategy { get; set; }
 
+        private List<IEnemyDeathObserver> _observers = new();
+        public void RegisterObserver(IEnemyDeathObserver obs) => _observers.Add(obs);
+
         // Flag to track enemy type (A or B)
         private bool _isTypeA;
 
@@ -27,15 +30,24 @@ namespace STG2
             // Type B: 30 HP (3 player bullets)
             Health = _isTypeA ? 20 : 30;
         }
+        public void Die()
+        {
+            NotifyDeath();
+        }
 
+        private void NotifyDeath()
+        {
+            foreach (var obs in _observers)
+                obs.OnEnemyDied(this);
+        }
         public override void DefaultDraw(SpriteBatch spriteBatch)
         {
             // Draw enemy
             spriteBatch.Draw(_texture, new Rectangle(
                 (int)Position.X,
                 (int)Position.Y,
-                70, 
-                70),
+                90, 
+                90),
                 Color.White);
         }
 
@@ -45,8 +57,8 @@ namespace STG2
             spriteBatch.Draw(_texture, new Rectangle(
                 (int)Position.X,
                 (int)Position.Y,
-                70, 
-                70),
+                90, 
+                90),
                 color);
         }
 

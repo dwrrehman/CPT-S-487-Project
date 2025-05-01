@@ -1,23 +1,59 @@
- [
-    {
-      "Duration": 15,
-      "SpawnInterval": 2,
-      "EnemyType": "Enemy1"
-    },
-    {
-      "Duration": 20,
-      "SpawnInterval": 2,
-      "EnemyType": "Enemy2"
-    },
-    {
-      "Duration": 20,
-      "SpawnInterval": 1,
-      "EnemyType": "MidBoss"
-    },
-    {
-      "Duration": 30,
-      "SpawnInterval": 1,
-      "EnemyType": "FinalBoss"
-    }
-  ]
+[
+  {
+    "Duration": 15,
+    "SpawnInterval": 2,
+    "EnemyType": "Enemy1",
+    "HP": 3,
+    "Move": "DownMovement",
+    "Fire": "Single",
+    "MaxCount": 10,
+    "Texture": "kaz",
+    "BulletTexture": "eb"
+  },
+  {
+    "Duration": 20,
+    "SpawnInterval": 2,
+    "EnemyType": "Enemy2",
+    "HP": 3,
+    "Move": "TrackingMovement",
+    "Fire": "Single",
+    "MaxCount": 20,
+    "Texture": "dia",
+    "BulletTexture": "eb"
 
+  },
+  {
+    "Duration": 20,
+    "SpawnInterval": 1,
+    "EnemyType": "MidBoss",
+    "HP": 150,
+    "Move": "HorizonalMovement",
+    "Fire": "Single",
+    "MaxCount": 1,
+    "Texture": "ji",
+    "BulletTexture": "eb",
+    "Move2": "DownMovement",
+    "Fire2": "BrokenThreadFire",
+    "Trigger": 75
+
+
+
+  },
+  {
+    "Duration": 30,
+    "SpawnInterval": 1,
+    "EnemyType": "FinalBoss",
+    "HP": 300,
+    "Move": "HorizonalMovement",
+    "Fire": "ConcentricRingFire",
+    "MaxCount": 1,
+    "Texture": "dio3",
+    "BulletTexture": "eb",
+    "Move2": "DownMovement",
+    "Fire2": "BrokenThreadFire",
+    "AttackSpeed": 10,
+    "AttackSpeed2": 10,
+    "Trigger": 150
+
+  }
+]

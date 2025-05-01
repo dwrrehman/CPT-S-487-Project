@@ -73,9 +73,34 @@ namespace STG2
     internal class ShotGun : Fire
     {
 
-        public void Fire(Entity entity, GameTime gameTime, List<Bullet> bullets, double Firerate)
+        private  Texture2D _bulletTexture;
+
+        public ShotGun(Texture2D bulletTexture)
         {
-            throw new NotImplementedException();
+            _bulletTexture = bulletTexture;
+        }
+        private double _timeSinceLastShot = 0.0;
+        EntityFactory _entityFactory = new RegularFactory();
+        void Fire.Fire(Entity entity, GameTime gameTime, List<Bullet> bullets, double fireRate)
+        {
+            _timeSinceLastShot += gameTime.ElapsedGameTime.TotalSeconds;
+            if (_timeSinceLastShot >= fireRate) {
+                _timeSinceLastShot = 0.0;
+
+                var center = _entityFactory.CreateBullet(_bulletTexture, entity, new UpMovement());
+                bullets.Add(center);
+
+                var left = _entityFactory.CreateBullet(_bulletTexture, entity, new UpMovement());
+                left.MovementStrategy = new UpLeftMovement();
+                bullets.Add(left);
+
+                var right = _entityFactory.CreateBullet(_bulletTexture, entity, new UpMovement());
+                right.MovementStrategy = new UpRightMovement();
+                bullets.Add(right);
+            }
+             
+            
+
         }
     }
 }

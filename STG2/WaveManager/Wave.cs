@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,22 +10,21 @@ namespace STG2
     class Wave
     {
 
-        public float Duration { get; set; }              
-        public float SpawnInterval { get; set; }
-        public string EnemyType { get; set; }
+        public float Duration;
+        public float SpawnInterval;
+        public string EnemyType;
+        public int HP;
+        public Movement MovementStrategy;
+        public Fire FireStrategy;
+        public int MaxCount;
+        public Texture2D Texture;
+        public Texture2D BulletTexture;
 
-        public float spawnTimer;
-        public bool AlreadySpawned { get; set; }
+        public float Timer;        
+        public float SpawnTimer;  
+        public int Spawned;
 
-        public Wave() { }
-
-        public Wave(float duration, string enemyType, float spawnInterval)
-        {
-            Duration = duration;
-            EnemyType = enemyType;
-            SpawnInterval = spawnInterval;
-            spawnTimer = 0;
-            AlreadySpawned = false;
-        }
+        public WaveConfig Config;
     }
 }
+

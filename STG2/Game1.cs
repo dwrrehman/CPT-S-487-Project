@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using SharpDX.Direct3D9;
 
 namespace STG2
 {
@@ -60,6 +59,7 @@ namespace STG2
         {
             // TODO: Add your drawing code here
             GraphicsDevice.Clear(Color.Transparent);
+         
 
 
             ScreenManager.Draw(gameTime, _spriteBatch);

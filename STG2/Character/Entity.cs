@@ -18,6 +18,7 @@ namespace STG2
         public int Health { get; set; }
         public int Speed { get; set; }
 
+
         // Add state pattern support
         public IEntityState CurrentState { get; set; }
 

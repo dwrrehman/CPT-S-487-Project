@@ -31,7 +31,7 @@ namespace STG2
         public override void Show()
         {
             base.Show();
-            _background = Game1.Content.Load<Texture2D>("background3");
+            _background = Game1.Content.Load<Texture2D>("jojo3");
             _button = Game1.Content.Load<Texture2D>("button2");
             _font = Game1.Content.Load<SpriteFont>("Fonts");
             _back = new Rectangle(100, 500, _button.Width, _button.Height);

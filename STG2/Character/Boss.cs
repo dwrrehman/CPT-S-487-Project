@@ -12,22 +12,24 @@ namespace STG2
     internal class Boss : Enemy
     {
         private Texture2D _texture;
-        private bool _isMidBoss;
-
-        public Boss(Vector2 position, Texture2D texture, int health, int speed)
+        public bool _isMidBoss { get; set; }
+        public Movement NextMove;   
+        public Fire NextFire;    
+        public int TriggerHp;   
+        public bool Phase2Done;
+        public Boss(Vector2 position, Texture2D texture,bool isMidBoss, int health, int speed)
             : base(position, texture, health, speed)
         {
             _texture = texture;
 
             // Determine if this is mid boss or final boss based on the texture
-            _isMidBoss = texture.Name.Contains("Enemy1");
-
+            _isMidBoss = isMidBoss;
             // Set health based on boss type:
             // Mid Boss: 150 HP (15 player bullets)
             // Final Boss: 300 HP (30 player bullets)
             Health = _isMidBoss ? 150 : 300;
+
         }
-        public bool IsMidBoss => _isMidBoss;
 
         public override void DefaultDraw(SpriteBatch spriteBatch)
         {

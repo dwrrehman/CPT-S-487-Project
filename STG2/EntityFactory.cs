@@ -18,6 +18,6 @@ namespace STG2
 
         Bullet CreateBullet(Texture2D Texture,Entity entity, Movement movement);
 
-        Boss CreatBoss(Vector2 Position, Texture2D Texture, int Health,Movement movement, Fire fire);
+        Boss CreatBoss(Vector2 Position, Texture2D Texture, bool _isMidBoss, int Health,Movement movement, Fire fireke);
     }
 }

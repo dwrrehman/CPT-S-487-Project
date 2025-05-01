@@ -21,7 +21,7 @@ namespace STG2.Commands
         protected override void HandleCollision()
         {
             // Player bullets do 10 damage (according to project-vision.txt)
-            enemy.TakeDamage(30);
+            enemy.TakeDamage(20);
 
             // Remove the bullet after hit
             bullet.Health = 0;
