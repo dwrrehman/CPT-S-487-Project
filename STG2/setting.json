@@ -1,0 +1,35 @@
+{
+  "keyBinds": [
+    {
+      "name": "Up",
+      "key": "W",
+      "gamepad": "LeftThumbstickUp"
+    },
+    {
+      "name": "Down",
+      "key": "S",
+      "gamepad": "LeftThumbstickDown"
+    },
+    {
+      "name": "Left",
+      "key": "A",
+      "gamepad": "LeftThumbstickLeft"
+    },
+    {
+      "name": "Right",
+      "key": "D",
+      "gamepad": "LeftThumbstickRight"
+    },
+    {
+      "name": "Attack",
+      "key": "Space",
+      "gamepad": "X"
+    },
+    {
+      "name": "Bomb",
+      "key": "B",
+      "gamepad": "RightShoulder"
+    }
+  ]
+
+}
